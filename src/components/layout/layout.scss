@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #000 0, #1d0a3a 80%, #000 100%);
+}
+
+.content {
+  padding: 100px;
+  color: #6737c5;
+  font-size: 20px;
+  text-shadow: 1px 1px 0px #000, 1px 1px 30px #9698f3;
+}

@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  background: #000;
+  border-bottom: 5px solid #5a43dc;
+  border-radius: 0 0 90px 90px;
+  z-index: 9;
+  &__link {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #5a43dc;
+    transition: text-shadow 900ms, background 700ms;
+    text-shadow: 5px 5px 1px #2a1f65,
+                 -5px -5px 1px #2a1f65,
+                 1px 1px 0 #000;
+    &:not(:last-of-type) {
+        border-right: 3px solid #5a43dc;
+    }
+    &:hover {
+      text-shadow: 0px 0px 0 #a4a1da;
+      background: #a4a1da;
+    }
+  }
+}

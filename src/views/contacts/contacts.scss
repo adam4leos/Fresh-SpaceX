@@ -1,0 +1,24 @@
+.contacts {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  &__link {
+    padding: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #09b;
+    transition: opacity 300ms;
+    &:hover {
+      opacity: .7;
+      text-decoration: underline;
+    }
+    &--facebook {
+      color: #1b4ab5;
+    }
+    &--gmail {
+      display: block;
+      color: #ba0404;
+    }
+  }
+}

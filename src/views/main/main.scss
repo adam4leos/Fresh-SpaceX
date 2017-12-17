@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  text-align: center;
+  &__heading {
+    font-size: 100px;
+    color: #000;
+    margin-bottom: 30px;
+    text-shadow: 2px 0px 2px #3d41ab,
+                 0px 0px 40px #a900ff;
+  }
+  &__description {
+    width: 75%;
+    padding: 30px;
+    font-size: 22px;
+  }
+  &__image {
+    width: 50%;
+    height: 100%;
+  }
+  &__information {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 30px;
+  }
+}

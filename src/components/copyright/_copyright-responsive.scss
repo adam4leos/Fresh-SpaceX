@@ -1,0 +1,9 @@
+@media screen and (max-width: 480px) {
+  .copyright {
+    width: 250px;
+    &__letter {
+      height: 130px;
+      font-size: 20px;
+    }
+  }
+}

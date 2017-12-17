@@ -1,0 +1,11 @@
+.rockets {
+  display: flex;
+  justify-content: space-around;
+  &__link {
+    text-decoration: none;
+    transition: transform 400ms;
+    &--active {
+      transform: scale(1.1);
+    }
+  }
+}
