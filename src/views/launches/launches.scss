@@ -1,0 +1,61 @@
+.launches {
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #743de0;
+    border-bottom-width: 3px;
+    border-radius: 50px;
+    font-size: 22px;
+  }
+  &__label {
+    width: 50%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &__input {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+  &__radio {
+    margin-left: 14px;
+  }
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+  }
+  &__results-heading {
+    padding: 20px;
+    font-size: 38px;
+    text-align: center;
+  }
+  &__submit {
+    width: 100px;
+    margin: 0 auto;
+    background: #534a98;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fbfbfb;
+    border: 1px solid #8a89de;
+    border-radius: 10px;
+  }
+  &__link {
+    display: flex;
+    width: calc(100% / 3 - 20px);
+    padding: 12px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    margin: 0 20px 30px 0;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 300ms, border-color 300ms;
+    &:hover {
+      transform: scale(1.05);
+      border-color: #374888;
+    }
+  }
+}

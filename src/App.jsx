@@ -14,6 +14,8 @@ import * as actionCreators from './actions/actionCreators';
 import Main from './views/main/Main.jsx';
 import Rockets from './views/rockets/Rockets.jsx';
 import RocketInfo from './views/rocketInfo/RocketInfo.jsx';
+import Launches from './views/launches/Launches.jsx';
+import LaunchInfo from './views/launchInfo/LaunchInfo.jsx';
 import Contacts from './views/contacts/Contacts.jsx';
 import Header from './components/header/Header.jsx';
 import './components/layout/layout.scss';
@@ -22,6 +24,7 @@ function mapStateToProps(state) {
   return {
     companyData: state.companyData,
     rocketsData: state.rocketsData,
+    launches: state.launches,
   };
 }
 
@@ -35,7 +38,9 @@ const FreshSpaceX = props => (
     <Route exact path="/" render={() => <Main {...props} />} />
     <Route path="/rockets" render={() => <Rockets {...props} />} />
     <Route path="/rockets/:id" render={() => <RocketInfo {...props.location.state.rocketInfo} />} />
-    <Route path="/contacts" component={Contacts} />
+    <Route exact path="/launches" render={() => <Launches {...props} />} />
+    <Route exact path="/launches/:id" render={() => <LaunchInfo {...props.location.state.launchData} />} />
+    <Route exact path="/contacts" component={Contacts} />
   </div>
 );
 

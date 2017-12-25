@@ -6,6 +6,11 @@ import rootSaga from './sagas';
 const defaultState = {
   companyData: {},
   rocketsData: [],
+  launches: {
+    launchesData: [],
+    isPastLaunches: true,
+    launchYear: '2017',
+  },
 };
 
 const sagaMiddleware = createSagaMiddleware();

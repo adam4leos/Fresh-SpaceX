@@ -23,8 +23,6 @@ RocketBlock.propTypes = {
   name: PropTypes.string.isRequired,
   active: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
-  // cost_per_launch: PropTypes.number.isRequired,
-  // first_flight: PropTypes.string.isRequired,
 };
 
 export default RocketBlock;

@@ -13,10 +13,6 @@ class Main extends React.Component {
     this.props.requestCompanyData();
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-  }
-
   render() {
     const {
       name,
@@ -44,13 +40,6 @@ class Main extends React.Component {
           <h3>Founder - {founder}</h3>
           <h3>Valuation - {valuation}</h3>
         </div>
-        {/* <form action="" onSubmit={this.onSubmit}>
-          <label>
-            Enter city name
-            <input type="text" />
-          </label>
-          <button type="submit">Submit</button>
-        </form> */}
       </div>
     );
   }

@@ -29,11 +29,31 @@ const RocketInfo = ({
   </div>
 );
 
-// RocketBlock.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   active: PropTypes.bool.isRequired,
-//   cost_per_launch: PropTypes.number.isRequired,
-//   first_flight: PropTypes.string.isRequired,
-// };
+RocketInfo.propTypes = {
+  description: PropTypes.string.isRequired,
+  cost_per_launch: PropTypes.number.isRequired,
+  boosters: PropTypes.number.isRequired,
+  country: PropTypes.string.isRequired,
+  stages: PropTypes.number.isRequired,
+  first_flight: PropTypes.string.isRequired,
+  diameter: PropTypes.shape({
+    feet: PropTypes.number,
+    meters: PropTypes.number.isRequired,
+  }).isRequired,
+  height: PropTypes.shape({
+    feet: PropTypes.number,
+    meters: PropTypes.number.isRequired,
+  }).isRequired,
+  mass: PropTypes.shape({
+    lb: PropTypes.number.isRequired,
+    kg: PropTypes.number.isRequired,
+  }).isRequired,
+  engines: PropTypes.shape({
+    number: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+    propellant_1: PropTypes.string.isRequired,
+    propellant_2: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default RocketInfo;
