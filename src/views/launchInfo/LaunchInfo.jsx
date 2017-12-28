@@ -1,16 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import YoutubeVideo from 'react-youtube-video';
 import './launchInfo.scss';
 
 const LaunchInfo = ({
   launch_year: launchYear,
-  launch_success: isLaunchSuccess,
-}) => (
-  <div className="launch-info">
-    Is Launch Success - {isLaunchSuccess ? 'Yes' : 'Nope'}<br />
-    Launch Year - {launchYear}
-  </div>
-);
+  launch_success: isLaunchSuccessed,
+  details,
+  links,
+  rocket,
+}) => {
+  const {
+    video_link: youtubeVideo,
+    article_link: articleURL,
+    mission_patch: missionPatch,
+    reddit_campaign: redditCampaign,
+  } = links;
+
+  return (
+    <div className="launch-info">
+      <h2 className="launch-info__heading">Heading ({isLaunchSuccessed ? 'Successed' : 'Unsuccessed'})</h2>
+      <div className="launch-info__information">
+        <div className="launch-info__description">
+          <p className="launch-info__details">{details}</p>
+          <p className="launch-info__rocket">{rocket.rocket_name}</p>
+          <p className="launch-info__year">{launchYear}</p>
+          <div className="launch-info__links">
+            <a href={redditCampaign} className="launch-info__link">Reddit Campaign</a>
+            <a href={articleURL} className="launch-info__link">Article</a>
+          </div>
+        </div>
+        <img src={missionPatch} alt="mission_patch" className="launch-info__patch" />
+      </div>
+      <YoutubeVideo url={youtubeVideo} />
+    </div>
+  );
+};
 
 // RocketInfo.propTypes = {
 //   description: PropTypes.string.isRequired,

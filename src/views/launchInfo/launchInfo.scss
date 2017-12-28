@@ -1,0 +1,19 @@
+.launch-info {
+  display: flex;
+  flex-wrap: wrap;
+  &__heading {
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+  &__information {
+    display: flex;
+    justify-content: space-around;
+  }
+  &__patch {
+    width: 25%;
+    align-self: center;
+  }
+}
