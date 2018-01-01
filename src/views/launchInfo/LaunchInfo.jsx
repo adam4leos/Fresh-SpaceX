@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import YoutubeVideo from 'react-youtube-video';
+import ReactPlayer from 'react-player';
 import './launchInfo.scss';
 
 const LaunchInfo = ({
@@ -26,13 +26,20 @@ const LaunchInfo = ({
           <p className="launch-info__rocket">{rocket.rocket_name}</p>
           <p className="launch-info__year">{launchYear}</p>
           <div className="launch-info__links">
-            <a href={redditCampaign} className="launch-info__link">Reddit Campaign</a>
-            <a href={articleURL} className="launch-info__link">Article</a>
+            <a href={redditCampaign} className="launch-info__link" target="_blank">Reddit Campaign</a>
+            <a href={articleURL} className="launch-info__link" target="_blank">Detailed Article</a>
           </div>
         </div>
         <img src={missionPatch} alt="mission_patch" className="launch-info__patch" />
       </div>
-      <YoutubeVideo url={youtubeVideo} />
+      <div className="launch-info__video">
+        <ReactPlayer url={youtubeVideo} controls />
+        <div className="launch-info__engines">
+          <div className="launch-info__engine" />
+          <div className="launch-info__engine" />
+          <div className="launch-info__engine" />
+        </div>
+      </div>
     </div>
   );
 };
