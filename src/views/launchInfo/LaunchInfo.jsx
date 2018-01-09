@@ -3,46 +3,69 @@ import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 import './launchInfo.scss';
 
-const LaunchInfo = ({
-  launch_year: launchYear,
-  launch_success: isLaunchSuccessed,
-  details,
-  links,
-  rocket,
-}) => {
-  const {
-    video_link: youtubeVideo,
-    article_link: articleURL,
-    mission_patch: missionPatch,
-    reddit_campaign: redditCampaign,
-  } = links;
+class LaunchInfo extends React.Component {
+  constructor() {
+    super();
 
-  return (
-    <div className="launch-info">
-      <h2 className="launch-info__heading">Heading ({isLaunchSuccessed ? 'Successed' : 'Unsuccessed'})</h2>
-      <div className="launch-info__information">
-        <div className="launch-info__description">
-          <p className="launch-info__details">{details}</p>
-          <p className="launch-info__rocket">{rocket.rocket_name}</p>
-          <p className="launch-info__year">{launchYear}</p>
-          <div className="launch-info__links">
-            <a href={redditCampaign} className="launch-info__link" target="_blank">Reddit Campaign</a>
-            <a href={articleURL} className="launch-info__link" target="_blank">Detailed Article</a>
+    this.state = { isEnginesActive: false };
+  }
+
+  onVideoPlay = () => {
+    this.setState({ isEnginesActive: true });
+  }
+
+  onVideoStop = () => {
+    this.setState({ isEnginesActive: false });
+  }
+
+  render() {
+    const {
+      launch_year: launchYear,
+      launch_success: isLaunchSuccessed,
+      details,
+      links,
+      rocket,
+    } = this.props;
+    const {
+      video_link: youtubeVideo,
+      article_link: articleURL,
+      mission_patch: missionPatch,
+      reddit_campaign: redditCampaign,
+    } = links;
+
+    return (
+      <div className="launch-info">
+        <h2 className="launch-info__heading">Heading ({isLaunchSuccessed ? 'Successed' : 'Unsuccessed'})</h2>
+        <div className="launch-info__information">
+          <div className="launch-info__description">
+            <p className="launch-info__details">{details}</p>
+            <p className="launch-info__rocket">{rocket.rocket_name}</p>
+            <p className="launch-info__year">{launchYear}</p>
+            <div className="launch-info__links">
+              <a href={redditCampaign} className="launch-info__link" target="_blank">Reddit Campaign</a>
+              <a href={articleURL} className="launch-info__link" target="_blank">Detailed Article</a>
+            </div>
+          </div>
+          <img src={missionPatch} alt="mission_patch" className="launch-info__patch" />
+        </div>
+        <div className="launch-info__video">
+          <ReactPlayer
+            url={youtubeVideo}
+            onPlay={this.onVideoPlay}
+            onPause={this.onVideoStop}
+            onEnded={this.onVideoStop}
+            controls
+          />
+          <div className={`launch-info__engines ${this.state.isEnginesActive ? 'active' : ''}`}>
+            <div className="launch-info__engine" />
+            <div className="launch-info__engine" />
+            <div className="launch-info__engine" />
           </div>
         </div>
-        <img src={missionPatch} alt="mission_patch" className="launch-info__patch" />
       </div>
-      <div className="launch-info__video">
-        <ReactPlayer url={youtubeVideo} controls />
-        <div className="launch-info__engines">
-          <div className="launch-info__engine" />
-          <div className="launch-info__engine" />
-          <div className="launch-info__engine" />
-        </div>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 // RocketInfo.propTypes = {
 //   description: PropTypes.string.isRequired,

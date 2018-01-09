@@ -37,9 +37,16 @@
     margin: 0 auto;
     border-radius: 0 0 30px 30px;
     border: 24px solid #000;
+    background: #000;
   }
   &__engines {
     position: relative;
+    &.active {
+      .launch-info__engine::after {
+          opacity: 1;
+          height: 40px;
+      }
+    }
   }
   &__engine {
     position: absolute;
@@ -51,12 +58,6 @@
     transform: translateX(-50%);
     border-radius: 0 0 100px 100px;
     z-index: 1;
-    &:hover {
-      &::after {
-        opacity: 1;
-        height: 40px;
-      }
-    }
     &:first-child {
       left: 15%;
     }

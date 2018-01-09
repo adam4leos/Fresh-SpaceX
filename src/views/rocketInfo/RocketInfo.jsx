@@ -14,18 +14,49 @@ const RocketInfo = ({
   stages,
   description,
 }) => (
+  // TODO add switcher for system of measurement
   <div className="rocket-info">
-    <p>{description}</p>
-    Cost per launch - {costPerLaunch}<br />
-    Number of busters - {boosters}<br />
-    Country - {country}<br />
-    diameter - {diameter.meters} meters <br />
-    height - {height.meters} meters <br />
-    mass - {mass.kg} kg <br />
-    Number of stages - {stages} <br />
-    First fly - {firstFlight} <br />
-    engines - {engines.number} {engines.type} type engines using
-    {engines.propellant_1} and {engines.propellant_2}
+    <h3 className="rocket-info__heading">{description}</h3>
+    <p className="rocket-info__engines">
+      ({engines.number} &quot;{engines.type}&quot; type engines using&nbsp;
+      {engines.propellant_1} and {engines.propellant_2})
+    </p>
+    <table>
+      <tbody>
+        <tr>
+          <td>Cost per launch</td>
+          <td>{costPerLaunch}</td>
+        </tr>
+        <tr>
+          <td>Number of busters</td>
+          <td>{boosters}</td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td>{country}</td>
+        </tr>
+        <tr>
+          <td>diameter</td>
+          <td>{diameter.meters} meters</td>
+        </tr>
+        <tr>
+          <td>height</td>
+          <td>{height.meters} meters</td>
+        </tr>
+        <tr>
+          <td>mass</td>
+          <td>{mass.kg} kg</td>
+        </tr>
+        <tr>
+          <td>Number of stages</td>
+          <td>{stages}</td>
+        </tr>
+        <tr>
+          <td>First fly</td>
+          <td>{firstFlight}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 );
 

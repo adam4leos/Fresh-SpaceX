@@ -1,6 +1,7 @@
 .rockets {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 50px;
   &__link {
     text-decoration: none;
     transition: transform 400ms;
