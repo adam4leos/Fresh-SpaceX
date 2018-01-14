@@ -7,6 +7,7 @@ import {
   RECEIVE_LAUNCHES_DATA,
   TOGGLE_LAUNCHES_MODE,
   CHANGE_LAUNCH_YEAR,
+  TOGGLE_METRIC_SYSTEM,
 } from './actionTypes';
 
 export function requestCompanyData() {
@@ -59,5 +60,11 @@ export function changeLaunchYear(launchYear) {
   return {
     type: CHANGE_LAUNCH_YEAR,
     launchYear,
+  };
+}
+
+export function toggleMetricSystem() {
+  return {
+    type: TOGGLE_METRIC_SYSTEM,
   };
 }

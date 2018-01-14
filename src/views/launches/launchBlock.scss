@@ -1,6 +1,17 @@
 .launch-block {
   display: flex;
   text-align: center;
+  position: relative; /* for status */
+  &__status {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    transform: rotate(-30deg) translateX(-33.33%);
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    background: #000;
+  }
   &__info {
     display: flex;
     flex-direction: column;

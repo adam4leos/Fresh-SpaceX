@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Toggle from 'react-toggle';
+import 'react-toggle/style.css';
 import './rocketInfo.scss';
 
 const RocketInfo = ({
@@ -13,52 +15,71 @@ const RocketInfo = ({
   mass,
   stages,
   description,
-}) => (
-  // TODO add switcher for system of measurement
-  <div className="rocket-info">
-    <h3 className="rocket-info__heading">{description}</h3>
-    <p className="rocket-info__engines">
-      ({engines.number} &quot;{engines.type}&quot; type engines using&nbsp;
-      {engines.propellant_1} and {engines.propellant_2})
-    </p>
-    <table>
-      <tbody>
-        <tr>
-          <td>Cost per launch</td>
-          <td>{costPerLaunch}</td>
-        </tr>
-        <tr>
-          <td>Number of busters</td>
-          <td>{boosters}</td>
-        </tr>
-        <tr>
-          <td>Country</td>
-          <td>{country}</td>
-        </tr>
-        <tr>
-          <td>diameter</td>
-          <td>{diameter.meters} meters</td>
-        </tr>
-        <tr>
-          <td>height</td>
-          <td>{height.meters} meters</td>
-        </tr>
-        <tr>
-          <td>mass</td>
-          <td>{mass.kg} kg</td>
-        </tr>
-        <tr>
-          <td>Number of stages</td>
-          <td>{stages}</td>
-        </tr>
-        <tr>
-          <td>First fly</td>
-          <td>{firstFlight}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-);
+  isMetricSystem,
+  toggleMetricSystem,
+}) => {
+  const measurementUnits = {
+    length: isMetricSystem ? 'meters' : 'feet',
+    mass: isMetricSystem ? 'kg' : 'lb',
+  };
+
+  return (
+    <div className="rocket-info">
+      <label htmlFor="measurement-toggle" className="rocket-info__measurement">
+        <Toggle
+          defaultChecked={isMetricSystem}
+          onChange={toggleMetricSystem}
+          icons={false}
+          id="measurement-toggle"
+        />
+        <span>Use Metric System</span>
+      </label>
+      <div className="rocket-info__details">
+        <h3 className="rocket-info__heading">{description}</h3>
+        <p className="rocket-info__engines">
+          ({engines.number} &quot;{engines.type}&quot; type engines using&nbsp;
+          {engines.propellant_1} and {engines.propellant_2})
+        </p>
+      </div>
+      <table className="rocket-info__table">
+        <tbody>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">Cost per launch</td>
+            <td className="rocket-info__data">{costPerLaunch}</td>
+          </tr>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">Number of busters</td>
+            <td className="rocket-info__data">{boosters}</td>
+          </tr>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">Country</td>
+            <td className="rocket-info__data">{country}</td>
+          </tr>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">diameter</td>
+            <td className="rocket-info__data">{diameter[measurementUnits.length]} {measurementUnits.length}</td>
+          </tr>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">height</td>
+            <td className="rocket-info__data">{height[measurementUnits.length]} {measurementUnits.length}</td>
+          </tr>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">mass</td>
+            <td className="rocket-info__data">{mass[measurementUnits.mass]} {measurementUnits.mass}</td>
+          </tr>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">Number of stages</td>
+            <td className="rocket-info__data">{stages}</td>
+          </tr>
+          <tr className="rocket-info__row">
+            <td className="rocket-info__data">First fly</td>
+            <td className="rocket-info__data">{firstFlight}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 RocketInfo.propTypes = {
   description: PropTypes.string.isRequired,
@@ -85,6 +106,8 @@ RocketInfo.propTypes = {
     propellant_1: PropTypes.string.isRequired,
     propellant_2: PropTypes.string.isRequired,
   }).isRequired,
+  isMetricSystem: PropTypes.bool.isRequired,
+  toggleMetricSystem: PropTypes.func.isRequired,
 };
 
 export default RocketInfo;

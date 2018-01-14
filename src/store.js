@@ -11,6 +11,9 @@ const defaultState = {
     isPastLaunches: true,
     launchYear: '2017',
   },
+  measurementSystem: {
+    isMetricSystem: true,
+  },
 };
 
 const sagaMiddleware = createSagaMiddleware();

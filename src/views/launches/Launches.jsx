@@ -55,7 +55,6 @@ class Launches extends React.Component {
 
     return (
       <div className="launches">
-        <h3>Lauche control</h3>
         <form action="" onSubmit={this.onSubmit} className="launches__form">
           <label htmlFor="past-launches-radio" className="launches__label">
             I want to see the past (past launches)

@@ -1,15 +1,45 @@
 .rocket-info {
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 80px 50px;
   border: 1px solid;
   border-radius: 90px;
+  position: relative;
+  &__measurement {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 230px;
+    position: absolute;
+    top: 50px;
+    left: 70px;
+  }
   &__heading {
     font-size: 26px;
     margin-bottom: 20px;
   }
   &__engines {
     margin-bottom: 20px;
+  }
+  &__details {
+    width: 50%;
+    padding: 5%;
+  }
+  &__table {
+    width: 50%;
+  }
+  &__row {
+    &:not(:last-child) {
+      border-bottom: 1px solid #6637c5;
+    }
+  }
+  &__data {
+    padding: 16px;
+    text-align: center;
+    &:not(:last-child) {
+      font-weight: bold;
+      text-transform: capitalize;
+      border-right: 2px solid #6637c5;
+    }
   }
 }

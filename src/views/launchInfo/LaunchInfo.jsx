@@ -21,7 +21,7 @@ class LaunchInfo extends React.Component {
   render() {
     const {
       launch_year: launchYear,
-      launch_success: isLaunchSuccessed,
+      launch_success: isLaunchSucceeded,
       details,
       links,
       rocket,
@@ -35,7 +35,8 @@ class LaunchInfo extends React.Component {
 
     return (
       <div className="launch-info">
-        <h2 className="launch-info__heading">Heading ({isLaunchSuccessed ? 'Successed' : 'Unsuccessed'})</h2>
+        { /* TODO Heading */}
+        <h2 className="launch-info__heading">Heading ({isLaunchSucceeded ? 'Succeeded' : 'Failed'})</h2>
         <div className="launch-info__information">
           <div className="launch-info__description">
             <p className="launch-info__details">{details}</p>
@@ -56,6 +57,7 @@ class LaunchInfo extends React.Component {
             onEnded={this.onVideoStop}
             controls
           />
+          {/* TODO fancy engines animation */}
           <div className={`launch-info__engines ${this.state.isEnginesActive ? 'active' : ''}`}>
             <div className="launch-info__engine" />
             <div className="launch-info__engine" />
@@ -67,31 +69,19 @@ class LaunchInfo extends React.Component {
   }
 }
 
-// RocketInfo.propTypes = {
-//   description: PropTypes.string.isRequired,
-//   cost_per_launch: PropTypes.number.isRequired,
-//   boosters: PropTypes.number.isRequired,
-//   country: PropTypes.string.isRequired,
-//   stages: PropTypes.number.isRequired,
-//   first_flight: PropTypes.string.isRequired,
-//   diameter: PropTypes.shape({
-//     feet: PropTypes.number,
-//     meters: PropTypes.number.isRequired,
-//   }).isRequired,
-//   height: PropTypes.shape({
-//     feet: PropTypes.number,
-//     meters: PropTypes.number.isRequired,
-//   }).isRequired,
-//   mass: PropTypes.shape({
-//     lb: PropTypes.number.isRequired,
-//     kg: PropTypes.number.isRequired,
-//   }).isRequired,
-//   engines: PropTypes.shape({
-//     number: PropTypes.number.isRequired,
-//     type: PropTypes.string.isRequired,
-//     propellant_1: PropTypes.string.isRequired,
-//     propellant_2: PropTypes.string.isRequired,
-//   }).isRequired,
-// };
+LaunchInfo.propTypes = {
+  launch_year: PropTypes.string.isRequired,
+  launch_success: PropTypes.bool.isRequired,
+  details: PropTypes.string.isRequired,
+  links: PropTypes.shape({
+    video_link: PropTypes.string,
+    article_link: PropTypes.string,
+    mission_patch: PropTypes.string,
+    reddit_campaign: PropTypes.string,
+  }).isRequired,
+  rocket: PropTypes.shape({
+    rocket_name: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default LaunchInfo;

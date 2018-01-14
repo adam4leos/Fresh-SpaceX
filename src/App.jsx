@@ -25,6 +25,7 @@ function mapStateToProps(state) {
     companyData: state.companyData,
     rocketsData: state.rocketsData,
     launches: state.launches,
+    measurementSystem: state.measurementSystem,
   };
 }
 
@@ -37,7 +38,16 @@ const FreshSpaceX = props => (
     <Header />
     <Route exact path="/" render={() => <Main {...props} />} />
     <Route path="/rockets" render={() => <Rockets {...props} />} />
-    <Route path="/rockets/:id" render={() => <RocketInfo {...props.location.state.rocketInfo} />} />
+    <Route
+      path="/rockets/:id"
+      render={() => (
+        <RocketInfo
+          {...props.location.state.rocketInfo}
+          isMetricSystem={props.measurementSystem.isMetricSystem}
+          toggleMetricSystem={props.toggleMetricSystem}
+        />
+      )}
+    />
     <Route exact path="/launches" render={() => <Launches {...props} />} />
     <Route exact path="/launches/:id" render={() => <LaunchInfo {...props.location.state.launchData} />} />
     <Route exact path="/contacts" component={Contacts} />
