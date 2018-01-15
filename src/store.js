@@ -9,7 +9,7 @@ const defaultState = {
   launches: {
     launchesData: [],
     isPastLaunches: true,
-    launchYear: '2017',
+    launchYear: '2018',
   },
   measurementSystem: {
     isMetricSystem: true,

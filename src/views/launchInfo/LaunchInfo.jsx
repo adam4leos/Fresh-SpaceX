@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
+import moment from 'moment';
 import './launchInfo.scss';
 
 class LaunchInfo extends React.Component {
@@ -22,6 +23,8 @@ class LaunchInfo extends React.Component {
     const {
       launch_year: launchYear,
       launch_success: isLaunchSucceeded,
+      launch_date_unix: unixLaunchDate,
+      flight_number: flightNumber,
       details,
       links,
       rocket,
@@ -32,16 +35,17 @@ class LaunchInfo extends React.Component {
       mission_patch: missionPatch,
       reddit_campaign: redditCampaign,
     } = links;
+    const formattedLaunchDateTime = moment.unix(unixLaunchDate).format('DD MMM, YYYY (H:mma)');
 
     return (
       <div className="launch-info">
-        { /* TODO Heading */}
-        <h2 className="launch-info__heading">Heading ({isLaunchSucceeded ? 'Succeeded' : 'Failed'})</h2>
+        <h2 className="launch-info__heading">Flight #{flightNumber} ({isLaunchSucceeded ? 'Succeeded' : 'Failed'})</h2>
         <div className="launch-info__information">
           <div className="launch-info__description">
             <p className="launch-info__details">{details}</p>
             <p className="launch-info__rocket">{rocket.rocket_name}</p>
             <p className="launch-info__year">{launchYear}</p>
+            <p className="launch-info__datetime">{formattedLaunchDateTime}</p>
             <div className="launch-info__links">
               <a href={redditCampaign} className="launch-info__link" target="_blank">Reddit Campaign</a>
               <a href={articleURL} className="launch-info__link" target="_blank">Detailed Article</a>
@@ -72,6 +76,8 @@ class LaunchInfo extends React.Component {
 LaunchInfo.propTypes = {
   launch_year: PropTypes.string.isRequired,
   launch_success: PropTypes.bool.isRequired,
+  flight_number: PropTypes.number.isRequired,
+  launch_date_unix: PropTypes.number.isRequired,
   details: PropTypes.string.isRequired,
   links: PropTypes.shape({
     video_link: PropTypes.string,

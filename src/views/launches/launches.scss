@@ -13,6 +13,7 @@
     width: 50%;
     text-align: center;
     margin-bottom: 20px;
+    cursor: pointer;
   }
   &__input {
     font-size: 16px;
@@ -42,6 +43,7 @@
     color: #fbfbfb;
     border: 1px solid #8a89de;
     border-radius: 10px;
+    cursor: pointer;
   }
   &__link {
     display: flex;

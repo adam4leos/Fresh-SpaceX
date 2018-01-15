@@ -9,6 +9,7 @@ import { withRouter } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { Provider, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import store from './store';
 import * as actionCreators from './actions/actionCreators';
 import Main from './views/main/Main.jsx';
@@ -66,7 +67,16 @@ function App() {
   );
 }
 
+// TODO PRELOADERS!!
+
 render(
   <App />,
   document.getElementById('app-root'),
 );
+
+FreshSpaceX.propTypes = {
+  toggleMetricSystem: PropTypes.func.isRequired,
+  measurementSystem: PropTypes.shape({
+    isMetricSystem: PropTypes.bool.isRequired,
+  }).isRequired,
+};

@@ -95,7 +95,8 @@ class Launches extends React.Component {
         </form>
         <h2 className="launches__results-heading">{isLatestLaunch ? 'Latest Launch' : launchYear }</h2>
         <div className="launches__grid">
-          {launchesData.map((launchData, index) => {
+          {/* TODO clean up here! */}
+          {launchesData.length > 0 ? launchesData.map((launchData, index) => {
             const flightNumber = launchData.flight_number;
             const linkLocation = {
               pathname: `/launches/${flightNumber}`,
@@ -107,7 +108,7 @@ class Launches extends React.Component {
                 <LaunchBlock {...launchData} />
               </Link>
             );
-          })}
+          }) : (<span>empty</span>)}
         </div>
       </div>
     );
