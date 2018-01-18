@@ -21,13 +21,12 @@ class LaunchInfo extends React.Component {
 
   render() {
     const {
-      launch_year: launchYear,
-      launch_success: isLaunchSucceeded,
-      launch_date_unix: unixLaunchDate,
-      flight_number: flightNumber,
       details,
       links,
       rocket,
+      launch_success: isLaunchSucceeded,
+      launch_date_unix: unixLaunchDate,
+      flight_number: flightNumber,
     } = this.props;
     const {
       video_link: youtubeVideo,
@@ -35,17 +34,57 @@ class LaunchInfo extends React.Component {
       mission_patch: missionPatch,
       reddit_campaign: redditCampaign,
     } = links;
+    const {
+      first_stage: firstStage,
+      second_stage: secondStage,
+      rocket_name: rocketName,
+    } = rocket;
     const formattedLaunchDateTime = moment.unix(unixLaunchDate).format('DD MMM, YYYY (H:mma)');
 
     return (
       <div className="launch-info">
-        <h2 className="launch-info__heading">Flight #{flightNumber} ({isLaunchSucceeded ? 'Succeeded' : 'Failed'})</h2>
+        <h2 className="launch-info__heading">Launch #{flightNumber} ({isLaunchSucceeded ? 'Succeeded' : 'Failed'})</h2>
         <div className="launch-info__information">
           <div className="launch-info__description">
+            <p className="launch-info__caption">{rocketName}, {formattedLaunchDateTime}</p>
             <p className="launch-info__details">{details}</p>
-            <p className="launch-info__rocket">{rocket.rocket_name}</p>
-            <p className="launch-info__year">{launchYear}</p>
-            <p className="launch-info__datetime">{formattedLaunchDateTime}</p>
+            <div className="launch-info__first-stage">
+              {firstStage.cores.map(({
+                reused,
+                core_serial: coreSerial,
+                land_success: isLandSucceeded,
+                landing_type: landingType,
+                landing_vehicle: landingVehicle,
+              }) => (
+                <div className="launch-info__core" key={coreSerial}>
+                  <span>{reused ? 'Reused' : 'Not reused'}</span>
+                  <span>{isLandSucceeded ? 'Land succeeded' : 'Not succeeded'}</span>
+                  <span>{landingType}</span>
+                  <span>{landingVehicle}</span>
+                </div>
+              ))}
+            </div>
+            <div className="launch-info__second-stage">
+              {secondStage.payloads.map(({
+                reused,
+                orbit,
+                customers,
+                // TODO consider measurements switch
+                payload_mass_kg: payloadMass,
+                mass_returned_kg: returnedMass,
+                payload_type: payloadType,
+                payload_id: payloadID,
+              }) => (
+                <div className="launch-info__core" key={payloadID}>
+                  <span>{reused ? 'Reused' : 'Not reused'}</span>
+                  <span>{orbit}</span>
+                  <span>{returnedMass}</span>
+                  <span>{payloadMass}</span>
+                  <span>{payloadType}</span>
+                  {customers.map(customer => <span key={customer}>{customer}</span>)}
+                </div>
+              ))}
+            </div>
             <div className="launch-info__links">
               <a href={redditCampaign} className="launch-info__link" target="_blank">Reddit Campaign</a>
               <a href={articleURL} className="launch-info__link" target="_blank">Detailed Article</a>
@@ -74,7 +113,6 @@ class LaunchInfo extends React.Component {
 }
 
 LaunchInfo.propTypes = {
-  launch_year: PropTypes.string.isRequired,
   launch_success: PropTypes.bool.isRequired,
   flight_number: PropTypes.number.isRequired,
   launch_date_unix: PropTypes.number.isRequired,
