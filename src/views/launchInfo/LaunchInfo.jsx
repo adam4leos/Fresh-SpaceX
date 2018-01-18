@@ -49,6 +49,7 @@ class LaunchInfo extends React.Component {
             <p className="launch-info__caption">{rocketName}, {formattedLaunchDateTime}</p>
             <p className="launch-info__details">{details}</p>
             <div className="launch-info__first-stage">
+              <div>First Stage</div>
               {firstStage.cores.map(({
                 reused,
                 core_serial: coreSerial,
@@ -56,15 +57,16 @@ class LaunchInfo extends React.Component {
                 landing_type: landingType,
                 landing_vehicle: landingVehicle,
               }) => (
-                <div className="launch-info__core" key={coreSerial}>
-                  <span>{reused ? 'Reused' : 'Not reused'}</span>
-                  <span>{isLandSucceeded ? 'Land succeeded' : 'Not succeeded'}</span>
-                  <span>{landingType}</span>
-                  <span>{landingVehicle}</span>
-                </div>
+                <ul className="launch-info__core" key={coreSerial}>
+                  <li>{reused ? 'Was' : 'Wasn\'t'}&nbsp;Reused</li>
+                  <li>Land&nbsp;{isLandSucceeded ? '' : 'Not '}Succeeded</li>
+                  <li>Landing Type - {landingType}</li>
+                  <li>Landing Vehicle - {landingVehicle}</li>
+                </ul>
               ))}
             </div>
             <div className="launch-info__second-stage">
+              <div>Second Stage</div>
               {secondStage.payloads.map(({
                 reused,
                 orbit,
@@ -75,14 +77,14 @@ class LaunchInfo extends React.Component {
                 payload_type: payloadType,
                 payload_id: payloadID,
               }) => (
-                <div className="launch-info__core" key={payloadID}>
-                  <span>{reused ? 'Reused' : 'Not reused'}</span>
-                  <span>{orbit}</span>
-                  <span>{returnedMass}</span>
-                  <span>{payloadMass}</span>
-                  <span>{payloadType}</span>
-                  {customers.map(customer => <span key={customer}>{customer}</span>)}
-                </div>
+                <ul className="launch-info__core" key={payloadID}>
+                  <li>{reused ? 'Was' : 'Wasn\'t'}&nbsp;Reused</li>
+                  <li>Orbit {orbit}</li>
+                  {returnedMass ? (<li>Returned Mass - {returnedMass}</li>) : null}
+                  {payloadMass ? (<li>Payload Mass - {payloadMass}</li>) : null}
+                  <li>Payload Type {payloadType}</li>
+                  {customers.map(customer => <li key={customer}>Customer - {customer}</li>)}
+                </ul>
               ))}
             </div>
             <div className="launch-info__links">
