@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import RocketBlock from './RocketBlock.jsx';
+import Spinner from './../../components/spinner/Spinner.jsx';
 import './rockets.scss';
 
 class Rockets extends React.Component {
@@ -18,7 +19,7 @@ class Rockets extends React.Component {
   render() {
     return (
       <div className="rockets">
-        {this.props.rocketsData.map((rocketInfo) => {
+        {this.props.rocketsData.length > 0 ? this.props.rocketsData.map((rocketInfo) => {
           const rocketID = rocketInfo.id;
           const linkLocation = {
             pathname: `/rockets/${rocketID}`,
@@ -30,7 +31,7 @@ class Rockets extends React.Component {
               <RocketBlock {...rocketInfo} />
             </NavLink>
           );
-        })}
+        }) : (<Spinner />)}
       </div>
     );
   }

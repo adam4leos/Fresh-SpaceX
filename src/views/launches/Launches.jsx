@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import LaunchBlock from './LaunchBlock.jsx';
+import Spinner from './../../components/spinner/Spinner.jsx';
 import './launches.scss';
 
 class Launches extends React.Component {
@@ -95,7 +96,6 @@ class Launches extends React.Component {
         </form>
         <h2 className="launches__results-heading">{isLatestLaunch ? 'Latest Launch' : launchYear }</h2>
         <div className="launches__grid">
-          {/* TODO clean up here! */}
           {launchesData.length > 0 ? launchesData.map((launchData, index) => {
             const flightNumber = launchData.flight_number;
             const linkLocation = {
@@ -108,7 +108,7 @@ class Launches extends React.Component {
                 <LaunchBlock {...launchData} />
               </Link>
             );
-          }) : (<span>empty</span>)}
+          }) : (<Spinner />)}
         </div>
       </div>
     );

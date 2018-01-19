@@ -88,8 +88,8 @@ class LaunchInfo extends React.Component {
               ))}
             </div>
             <div className="launch-info__links">
-              <a href={redditCampaign} className="launch-info__link" target="_blank">Reddit Campaign</a>
-              <a href={articleURL} className="launch-info__link" target="_blank">Detailed Article</a>
+              {redditCampaign ? (<a href={redditCampaign} className="launch-info__link" target="_blank">Reddit Campaign</a>) : null}
+              {articleURL ? (<a href={articleURL} className="launch-info__link" target="_blank">Detailed Article</a>) : null}
             </div>
           </div>
           <img src={missionPatch} alt="mission_patch" className="launch-info__patch" />

@@ -67,7 +67,6 @@ function App() {
   );
 }
 
-// TODO PRELOADERS!!
 // TODO EMPTY DATA VALIDATIONS!!
 
 render(

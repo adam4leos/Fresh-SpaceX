@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Spinner from './../../components/spinner/Spinner.jsx';
 import './main.scss';
 
 class Main extends React.Component {
@@ -26,7 +27,7 @@ class Main extends React.Component {
       valuation,
     } = this.props.companyData;
 
-    return (
+    return Object.keys(this.props.companyData).length !== 0 ? (
       <div className="main">
         <h1 className="main__heading">{name}</h1>
         <p className="main__description">{summary}</p>
@@ -40,6 +41,10 @@ class Main extends React.Component {
           <h3>Founder - {founder}</h3>
           <h3>Valuation - {valuation}</h3>
         </div>
+      </div>
+    ) : (
+      <div className="main__spinner">
+        <Spinner />
       </div>
     );
   }

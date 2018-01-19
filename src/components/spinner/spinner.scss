@@ -1,0 +1,60 @@
+.spinner {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  &__circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid #743CE0;
+    animation: up 1s;
+    animation-iteration-count: infinite;
+    transition: 2s;
+    border-bottom: none;
+    border-right: none;
+    animation-timing-function: linear;
+    left: 0;
+    top: 10px;
+    &--second {
+      width: 90px;
+      height: 90px;
+      left: 4px;
+      top: 19px;
+      animation-delay: .2s;
+    }
+    &--third {
+      width: 80px;
+      height: 80px;
+      left: 8px;
+      top: 26px;
+      animation-delay: .4s;
+    }
+    &--fourth {
+      width: 70px;
+      height: 70px;
+      left: 13px;
+      top: 33px;
+      animation-delay: .6s;
+    }
+    &--fifth {
+      width: 60px;
+      height: 60px;
+      left: 18px;
+      top: 39px;
+      animation-delay: .8s;
+    }
+  }
+}
+
+@keyframes up {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

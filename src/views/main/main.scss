@@ -11,6 +11,11 @@
     text-shadow: 2px 0px 2px #3d41ab,
                  0px 0px 40px #a900ff;
   }
+  &__spinner {
+    display: flex;
+    justify-content: center;
+    padding: 100px 50px;
+  }
   &__description {
     width: 75%;
     padding: 30px;
