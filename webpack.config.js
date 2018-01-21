@@ -13,7 +13,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
   fallback: 'style-loader',
-  loader: ['css-loader', 'sass-loader'],
+  use: ['css-loader', 'sass-loader'],
 });
 const imgOptionsProd = {
   name: '[name]-[hash:12].[ext]',
@@ -122,6 +122,7 @@ module.exports = {
       filename: getPath => getPath('css/[name].bundle.css'),
       disable: !isProd,
       allChunks: true,
+      fallback: 'style-loader',
     }),
     new webpack.ProvidePlugin({
       Promise: 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise',

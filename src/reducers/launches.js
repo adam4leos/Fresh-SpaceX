@@ -7,7 +7,7 @@ import {
 function launches(state = {}, action) {
   switch (action.type) {
     case RECEIVE_LAUNCHES_DATA: {
-      const launchesData = action.launchesData;
+      const { launchesData } = action;
       const newLaunchesDataArray = Array.isArray(launchesData) ? launchesData : [launchesData];
 
       return {
