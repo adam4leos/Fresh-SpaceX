@@ -22,19 +22,7 @@ import LaunchInfo from './views/launchInfo/LaunchInfo.jsx';
 import Contacts from './views/contacts/Contacts.jsx';
 import Header from './components/header/Header.jsx';
 import './components/layout/layout.scss';
-import type {
-  RocketInfoType,
-  CompanyDataType,
-  LaunchesType,
-  LaunchDataType,
-  RequestCompanyDataType,
-  RocketsDataType,
-  RequestRocketsDataType,
-  ToggleMetricSystemType,
-  ChangeLaunchYearType,
-  RequestLaunchesDataType,
-  ToggleLaunchesModeType,
-} from './flowTypes/flowTypes';
+import type { StoreType } from './flowTypes/flowTypes';
 
 const container = document.getElementById('app-root');
 
@@ -42,26 +30,7 @@ if (container === null) {
   throw new Error('Container doesn\'t exist');
 }
 
-type FreshSpaceXType = {
-  location: {
-    state: {
-      rocketInfo: RocketInfoType,
-      launchData: LaunchDataType,
-    },
-  },
-  companyData: CompanyDataType,
-  rocketsData: RocketsDataType,
-  launches: LaunchesType,
-  requestCompanyData: RequestCompanyDataType,
-  requestRocketsData: RequestRocketsDataType,
-  measurementSystem: {
-    isMetricSystem: boolean,
-  },
-  changeLaunchYear: ChangeLaunchYearType,
-  toggleMetricSystem: ToggleMetricSystemType,
-  requestLaunchesData: RequestLaunchesDataType,
-  toggleLaunchesMode: ToggleLaunchesModeType,
-}
+type FreshSpaceXType = StoreType;
 
 const FreshSpaceX = (props: FreshSpaceXType) => (
   <div className="content">

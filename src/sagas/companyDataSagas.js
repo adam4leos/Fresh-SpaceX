@@ -1,9 +1,14 @@
+// @flow
+
 import { call, put, takeLatest } from 'redux-saga/effects';
+import type { Saga } from 'redux-saga';
 import { receiveCompanyData } from './../actions/actionCreators';
 import { REQUEST_COMPANY_DATA } from './../actions/actionTypes';
 import FetchData from './../utils/FetchData';
+import type { ActionType } from '../flowTypes/flowTypes';
 
-function* requestCompanyData(action) {
+function* requestCompanyData(action: ActionType): Saga<void> {
+  console.log(action);
   try {
     const companyData = yield call(FetchData);
     yield put(receiveCompanyData(companyData));

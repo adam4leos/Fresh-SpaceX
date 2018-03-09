@@ -88,7 +88,7 @@ export type LaunchesType = {
   launchYear: string,
 }
 
-export type RequestCompanyDataType = () => { type: string };
+export type RequestCompanyDataType = () => {| type: string |};
 export type RequestRocketsDataType = () => string;
 export type RequestLaunchesDataType = (?string) => {
   type: string,
@@ -100,3 +100,31 @@ export type ChangeLaunchYearType = (string) => {
   type: string,
   newLaunchYear: string,
 };
+
+export type StoreType = {
+  location: {
+    state: {
+      rocketInfo: RocketInfoType,
+      launchData: LaunchDataType,
+    },
+  },
+  companyData: CompanyDataType,
+  rocketsData: RocketsDataType,
+  launches: LaunchesType,
+  requestCompanyData: RequestCompanyDataType,
+  requestRocketsData: RequestRocketsDataType,
+  measurementSystem: {
+    isMetricSystem: boolean,
+  },
+  changeLaunchYear: ChangeLaunchYearType,
+  toggleMetricSystem: ToggleMetricSystemType,
+  requestLaunchesData: RequestLaunchesDataType,
+  toggleLaunchesMode: ToggleLaunchesModeType,
+  isPastLaunches: boolean,
+  isMetricSystem: boolean,
+}
+
+export type ActionType = {
+  ...$Exact<StoreType>,
+  type: string,
+}

@@ -5,8 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers/index';
 import rootSaga from './sagas';
+import type { StoreType } from './flowTypes/flowTypes';
 
-const defaultState = {
+const defaultState: $Shape<StoreType> = {
   companyData: {},
   rocketsData: [],
   launches: {
@@ -21,7 +22,7 @@ const defaultState = {
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
+const store: StoreType = createStore(
   rootReducer,
   defaultState,
   applyMiddleware(sagaMiddleware),

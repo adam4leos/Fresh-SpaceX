@@ -1,10 +1,19 @@
+// @flow
+
 import {
   RECEIVE_LAUNCHES_DATA,
   TOGGLE_LAUNCHES_MODE,
   CHANGE_LAUNCH_YEAR,
 } from './../actions/actionTypes';
+import type { StoreType, ActionType, LaunchesType } from '../flowTypes/flowTypes';
 
-function launches(state = {}, action) {
+type LaunchesActionType = {
+  ...$Exact<ActionType>,
+  launchesData: LaunchesType,
+  launchYear: string,
+}
+
+function launches(state: StoreType = {}, action: LaunchesActionType) {
   switch (action.type) {
     case RECEIVE_LAUNCHES_DATA: {
       const { launchesData } = action;

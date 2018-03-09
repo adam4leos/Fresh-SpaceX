@@ -11,16 +11,19 @@ import {
   CHANGE_LAUNCH_YEAR,
   TOGGLE_METRIC_SYSTEM,
 } from './actionTypes';
+import type {
+  CompanyDataType,
+  RocketsDataType,
+  LaunchDataType,
+} from '../flowTypes/flowTypes';
 
-import type { RequestCompanyDataType } from '../flowTypes/flowTypes';
-
-export function requestCompanyData(): RequestCompanyDataType {
+export function requestCompanyData() {
   return {
     type: REQUEST_COMPANY_DATA,
   };
 }
 
-export function receiveCompanyData(companyData) {
+export function receiveCompanyData(companyData: CompanyDataType) {
   return {
     type: RECEIVE_COMPANY_DATA,
     companyData,
@@ -33,21 +36,21 @@ export function requestRocketsData() {
   };
 }
 
-export function receiveRocketsData(rocketsData) {
+export function receiveRocketsData(rocketsData: RocketsDataType) {
   return {
     type: RECEIVE_ROCKETS_DATA,
     rocketsData,
   };
 }
 
-export function requestLaunchesData(params) {
+export function requestLaunchesData(params: string) {
   return {
     type: REQUEST_LAUNCHES_DATA,
     params,
   };
 }
 
-export function receiveLaunchesData(launchesData) {
+export function receiveLaunchesData(launchesData: LaunchDataType) {
   return {
     type: RECEIVE_LAUNCHES_DATA,
     launchesData,
@@ -60,7 +63,7 @@ export function toggleLaunchesMode() {
   };
 }
 
-export function changeLaunchYear(launchYear) {
+export function changeLaunchYear(launchYear: string) {
   return {
     type: CHANGE_LAUNCH_YEAR,
     launchYear,
