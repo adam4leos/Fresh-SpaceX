@@ -1,10 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import moment from 'moment';
 import './launchInfo.scss';
+import type { LaunchDataType } from '../../flowTypes/flowTypes';
 
-class LaunchInfo extends React.Component {
+type Props = LaunchDataType;
+type State = {
+  isEnginesActive: boolean,
+}
+
+class LaunchInfo extends Component<Props, State> {
   constructor() {
     super();
 
@@ -39,7 +46,7 @@ class LaunchInfo extends React.Component {
       second_stage: secondStage,
       rocket_name: rocketName,
     } = rocket;
-    const formattedLaunchDateTime = moment.unix(unixLaunchDate).format('DD MMM, YYYY (H:mma)');
+    const formattedLaunchDateTime: string = moment.unix(unixLaunchDate).format('DD MMM, YYYY (H:mma)');
 
     return (
       <div className="launch-info">
@@ -113,21 +120,5 @@ class LaunchInfo extends React.Component {
     );
   }
 }
-
-LaunchInfo.propTypes = {
-  launch_success: PropTypes.bool.isRequired,
-  flight_number: PropTypes.number.isRequired,
-  launch_date_unix: PropTypes.number.isRequired,
-  details: PropTypes.string.isRequired,
-  links: PropTypes.shape({
-    video_link: PropTypes.string,
-    article_link: PropTypes.string,
-    mission_patch: PropTypes.string,
-    reddit_campaign: PropTypes.string,
-  }).isRequired,
-  rocket: PropTypes.shape({
-    rocket_name: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default LaunchInfo;

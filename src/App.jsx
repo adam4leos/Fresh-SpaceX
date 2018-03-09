@@ -1,3 +1,6 @@
+// @flow
+
+// TODO cleanup files, cosider two files here
 import 'reset-css';
 import React from 'react';
 import { render } from 'react-dom';
@@ -9,7 +12,6 @@ import { withRouter } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { Provider, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
 import store from './store';
 import * as actionCreators from './actions/actionCreators';
 import Main from './views/main/Main.jsx';
@@ -20,6 +22,89 @@ import LaunchInfo from './views/launchInfo/LaunchInfo.jsx';
 import Contacts from './views/contacts/Contacts.jsx';
 import Header from './components/header/Header.jsx';
 import './components/layout/layout.scss';
+import type {
+  RocketInfoType,
+  CompanyDataType,
+  LaunchesType,
+  LaunchDataType,
+  RequestCompanyDataType,
+  RocketsDataType,
+  RequestRocketsDataType,
+  ToggleMetricSystemType,
+  ChangeLaunchYearType,
+  RequestLaunchesDataType,
+  ToggleLaunchesModeType,
+} from './flowTypes/flowTypes';
+
+const container = document.getElementById('app-root');
+
+if (container === null) {
+  throw new Error('Container doesn\'t exist');
+}
+
+type FreshSpaceXType = {
+  location: {
+    state: {
+      rocketInfo: RocketInfoType,
+      launchData: LaunchDataType,
+    },
+  },
+  companyData: CompanyDataType,
+  rocketsData: RocketsDataType,
+  launches: LaunchesType,
+  requestCompanyData: RequestCompanyDataType,
+  requestRocketsData: RequestRocketsDataType,
+  measurementSystem: {
+    isMetricSystem: boolean,
+  },
+  changeLaunchYear: ChangeLaunchYearType,
+  toggleMetricSystem: ToggleMetricSystemType,
+  requestLaunchesData: RequestLaunchesDataType,
+  toggleLaunchesMode: ToggleLaunchesModeType,
+}
+
+const FreshSpaceX = (props: FreshSpaceXType) => (
+  <div className="content">
+    <Header />
+    <Route
+      exact
+      path="/"
+      render={() => (
+        <Main companyData={props.companyData} requestCompanyData={props.requestCompanyData} />
+      )}
+    />
+    <Route
+      path="/rockets"
+      render={() => (
+        <Rockets rocketsData={props.rocketsData} requestRocketsData={props.requestRocketsData} />
+      )}
+    />
+    <Route
+      path="/rockets/:id"
+      render={() => (
+        <RocketInfo
+          {...props.location.state.rocketInfo}
+          isMetricSystem={props.measurementSystem.isMetricSystem}
+          toggleMetricSystem={props.toggleMetricSystem}
+        />
+      )}
+    />
+    <Route
+      exact
+      path="/launches"
+      render={() => (
+        <Launches
+          launches={props.launches}
+          requestLaunchesData={props.requestLaunchesData}
+          changeLaunchYear={props.changeLaunchYear}
+          toggleLaunchesMode={props.toggleLaunchesMode}
+        />
+      )}
+    />
+    <Route exact path="/launches/:id" render={() => <LaunchInfo {...props.location.state.launchData} />} />
+    <Route exact path="/contacts" component={Contacts} />
+  </div>
+);
 
 function mapStateToProps(state) {
   return {
@@ -33,27 +118,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
-
-const FreshSpaceX = props => (
-  <div className="content">
-    <Header />
-    <Route exact path="/" render={() => <Main {...props} />} />
-    <Route path="/rockets" render={() => <Rockets {...props} />} />
-    <Route
-      path="/rockets/:id"
-      render={() => (
-        <RocketInfo
-          {...props.location.state.rocketInfo}
-          isMetricSystem={props.measurementSystem.isMetricSystem}
-          toggleMetricSystem={props.toggleMetricSystem}
-        />
-      )}
-    />
-    <Route exact path="/launches" render={() => <Launches {...props} />} />
-    <Route exact path="/launches/:id" render={() => <LaunchInfo {...props.location.state.launchData} />} />
-    <Route exact path="/contacts" component={Contacts} />
-  </div>
-);
 
 const ConnectedFreshSpaceX = withRouter(connect(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
@@ -71,12 +135,5 @@ function App() {
 
 render(
   <App />,
-  document.getElementById('app-root'),
+  container,
 );
-
-FreshSpaceX.propTypes = {
-  toggleMetricSystem: PropTypes.func.isRequired,
-  measurementSystem: PropTypes.shape({
-    isMetricSystem: PropTypes.bool.isRequired,
-  }).isRequired,
-};

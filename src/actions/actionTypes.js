@@ -1,3 +1,5 @@
+// @flow
+
 // company
 export const REQUEST_COMPANY_DATA = 'REQUEST_COMPANY_DATA';
 export const RECEIVE_COMPANY_DATA = 'RECEIVE_COMPANY_DATA';

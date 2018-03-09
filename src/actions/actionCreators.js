@@ -1,3 +1,5 @@
+// @flow
+
 import {
   REQUEST_COMPANY_DATA,
   RECEIVE_COMPANY_DATA,
@@ -10,7 +12,9 @@ import {
   TOGGLE_METRIC_SYSTEM,
 } from './actionTypes';
 
-export function requestCompanyData() {
+import type { RequestCompanyDataType } from '../flowTypes/flowTypes';
+
+export function requestCompanyData(): RequestCompanyDataType {
   return {
     type: REQUEST_COMPANY_DATA,
   };

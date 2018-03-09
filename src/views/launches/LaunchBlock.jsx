@@ -1,7 +1,9 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import moment from 'moment';
 import './launchBlock.scss';
+import type { LaunchDataType } from '../../flowTypes/flowTypes';
 
 const LaunchBlock = ({
   flight_number: flightNumber,
@@ -9,7 +11,7 @@ const LaunchBlock = ({
   launch_success: isLaunchSucceeded,
   links,
   rocket,
-}) => {
+}: LaunchDataType) => {
   /* eslint-disable global-require */
   const imageSource = require('./../../img/missing.png');
   /* eslint-enable global-require */
@@ -26,22 +28,6 @@ const LaunchBlock = ({
       <img src={links.mission_patch || imageSource} alt="launch_patch" className="launch-block__patch" />
     </div>
   );
-};
-
-LaunchBlock.propTypes = {
-  flight_number: PropTypes.number.isRequired,
-  launch_date_unix: PropTypes.number.isRequired,
-  launch_success: PropTypes.bool,
-  links: PropTypes.shape({
-    mission_patch: PropTypes.string,
-  }).isRequired,
-  rocket: PropTypes.shape({
-    rocket_name: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-LaunchBlock.defaultProps = {
-  launch_success: false,
 };
 
 export default LaunchBlock;

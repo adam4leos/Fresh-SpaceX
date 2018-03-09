@@ -1,11 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LaunchBlock from './LaunchBlock.jsx';
 import Spinner from './../../components/spinner/Spinner.jsx';
 import './launches.scss';
+import type {
+  RequestLaunchesDataType,
+  ToggleLaunchesModeType,
+  ChangeLaunchYearType,
+  LaunchesType,
+} from '../../flowTypes/flowTypes';
 
-class Launches extends React.Component {
+type Props = {
+  launches: LaunchesType,
+  requestLaunchesData: RequestLaunchesDataType,
+  toggleLaunchesMode: ToggleLaunchesModeType,
+  changeLaunchYear: ChangeLaunchYearType,
+}
+
+type State = {
+  isLatestLaunch: boolean,
+}
+
+class Launches extends Component<Props, State> {
   constructor() {
     super();
 
@@ -18,22 +36,22 @@ class Launches extends React.Component {
   }
 
   onLaunchesMount = async () => {
-    if (Object.keys(this.props.launches.launchesData).length === 0) {
+    if (this.props.launches.launchesData.length === 0) {
       this.props.requestLaunchesData();
     }
   }
 
-  onLaunchesRadioChange = (event) => {
+  onLaunchesRadioChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
     this.props.toggleLaunchesMode();
   }
 
-  onLaunchYearChange = (event) => {
-    const newEnteredYear = event.target.value;
+  onLaunchYearChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    const newEnteredYear: string = event.target.value;
 
     this.props.changeLaunchYear(newEnteredYear);
   }
 
-  onSubmit = (event) => {
+  onSubmit = (event: SyntheticInputEvent<HTMLInputElement>) => {
     event.preventDefault();
 
     let params = this.props.launches.isPastLaunches ? '' : '/upcoming';
@@ -114,21 +132,5 @@ class Launches extends React.Component {
     );
   }
 }
-
-Launches.propTypes = {
-  launches: PropTypes.shape({
-    launchesData: PropTypes.arrayOf(
-      PropTypes.shape({
-        flight_number: PropTypes.number,
-        details: PropTypes.string,
-      }).isRequired,
-    ).isRequired,
-    isPastLaunches: PropTypes.bool.isRequired,
-    launchYear: PropTypes.string,
-  }).isRequired,
-  requestLaunchesData: PropTypes.func.isRequired,
-  toggleLaunchesMode: PropTypes.func.isRequired,
-  changeLaunchYear: PropTypes.func.isRequired,
-};
 
 export default Launches;

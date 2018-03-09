@@ -1,14 +1,16 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import './rocketBlock.scss';
+import type { RocketInfoType } from '../../flowTypes/flowTypes';
 
 const RocketBlock = ({
   id,
   name,
   active: isRocketActive,
-}) => {
+}: RocketInfoType) => {
   /* eslint-disable global-require */
-  const imageSource = require(`./../../img/${id}.jpg`);
+  const imageSource: string = require(`./../../img/${id}.jpg`);
   /* eslint-enable global-require */
 
   return (
@@ -17,12 +19,6 @@ const RocketBlock = ({
       <img src={imageSource} alt={name} className="rocketBlock__image" />
     </div>
   );
-};
-
-RocketBlock.propTypes = {
-  name: PropTypes.string.isRequired,
-  active: PropTypes.bool.isRequired,
-  id: PropTypes.string.isRequired,
 };
 
 export default RocketBlock;

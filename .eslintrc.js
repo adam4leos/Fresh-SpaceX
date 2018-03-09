@@ -1,12 +1,22 @@
 module.exports = {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
   "parser": "babel-eslint",
   "env": {
     "node": true,
     "jasmine": true,
     "browser": true,
   },
+  "plugins": [
+    "flowtype"
+  ],
   "rules": {
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }],
     "jsx-a11y/href-no-hash": "off",
     "no-extra-parens": "error",
     "class-methods-use-this": "off",
@@ -20,5 +30,6 @@ module.exports = {
     "no-trailing-spaces": "off",
     "import/extensions": "off",
     "import/no-dynamic-require": "off",
+    "react/react-in-jsx-scope": "off"
   },
 }

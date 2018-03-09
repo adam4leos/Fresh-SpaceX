@@ -1,11 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import React, { Component } from 'react';
 import Spinner from './../../components/spinner/Spinner.jsx';
+import type { CompanyDataType, RequestCompanyDataType } from '../../flowTypes/flowTypes';
 import './main.scss';
 
-class Main extends React.Component {
+type Props = {
+  companyData: CompanyDataType,
+  requestCompanyData: RequestCompanyDataType,
+}
+
+class Main extends Component<Props> {
   componentDidMount() {
-    if (Object.keys(this.props.companyData).length === 0) {
+    const { companyData } = this.props.companyData;
+
+    if (companyData === undefined || Object.keys(companyData).length === 0) {
       this.onMainMount();
     }
   }
@@ -49,20 +58,5 @@ class Main extends React.Component {
     );
   }
 }
-
-Main.propTypes = {
-  companyData: PropTypes.shape({
-    name: PropTypes.string,
-    summary: PropTypes.string,
-    ceo: PropTypes.string,
-    coo: PropTypes.string,
-    cto: PropTypes.string,
-    employees: PropTypes.number,
-    founded: PropTypes.number,
-    founder: PropTypes.string,
-    valuation: PropTypes.number,
-  }).isRequired,
-  requestCompanyData: PropTypes.func.isRequired,
-};
 
 export default Main;
