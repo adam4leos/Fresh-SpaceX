@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
+  justify-content: center;
   text-align: center;
   &__heading {
     width: 25%;
@@ -33,3 +34,5 @@
     font-size: 30px;
   }
 }
+
+@import './main-responsive.scss';

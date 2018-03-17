@@ -1,0 +1,27 @@
+@media screen and (max-width: 1200px) {
+  .main {
+    &__heading {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    &__heading {
+      order: 2;
+    }
+    &__image {
+      order: 1;
+    }
+    &__description {
+      order: 3;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    &__information {
+      order: 4;
+      width: 100%;
+    }
+  }
+}
