@@ -8,7 +8,6 @@ import FetchData from './../utils/FetchData';
 import type { ActionType } from '../flowTypes/flowTypes';
 
 function* requestCompanyData(action: ActionType): Saga<void> {
-  console.log(action);
   try {
     const companyData = yield call(FetchData);
     yield put(receiveCompanyData(companyData));
