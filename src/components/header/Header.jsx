@@ -43,12 +43,12 @@ class Header extends Component<PropType, StateType> {
           <span className="header__hamburger-bar" />
           <span className="header__hamburger-bar" />
         </div>
-        <nav className={`${activeClass} header__nav`}>
-          <Link className="header__link" to="/">Main</Link>
-          <Link className="header__link" to="/rockets">Rockets</Link>
-          <Link className="header__link" to="/launches">Launches</Link>
-          <Link className="header__link" to="/contacts">Contacts</Link>
-        </nav>
+          <nav className={`${activeClass} header__nav`}>
+            <Link className="header__link" to="/">Main</Link>
+            <Link className="header__link" to="/rockets">Rockets</Link>
+            <Link className="header__link" to="/launches">Launches</Link>
+            <Link className="header__link" to="/contacts">Contacts</Link>
+          </nav>
       </header>
     );
   }

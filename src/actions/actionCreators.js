@@ -63,7 +63,7 @@ export function toggleLaunchesMode() {
   };
 }
 
-export function changeLaunchYear(launchYear: string) {
+export function changeLaunchYear(launchYear: string = '2017') {
   return {
     type: CHANGE_LAUNCH_YEAR,
     launchYear,

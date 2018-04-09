@@ -8,6 +8,7 @@ module.exports = {
     "node": true,
     "jasmine": true,
     "browser": true,
+    "jest": true,
   },
   "plugins": [
     "flowtype"

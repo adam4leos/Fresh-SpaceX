@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing header component Hamburger events working 1`] = `
+<div
+  className="active header__hamburger"
+  onClick={[Function]}
+  onKeyUp={[Function]}
+  role="menuitem"
+  tabIndex="0"
+>
+  <span
+    className="header__hamburger-bar"
+  />
+  <span
+    className="header__hamburger-bar"
+  />
+  <span
+    className="header__hamburger-bar"
+  />
+</div>
+`;
+
+exports[`testing header component Hamburger events working 2`] = `
+<header
+  className="header"
+>
+  <div
+    className=" header__hamburger"
+    onClick={[Function]}
+    onKeyUp={[Function]}
+    role="menuitem"
+    tabIndex="0"
+  >
+    <span
+      className="header__hamburger-bar"
+    />
+    <span
+      className="header__hamburger-bar"
+    />
+    <span
+      className="header__hamburger-bar"
+    />
+  </div>
+  <nav
+    className=" header__nav"
+  >
+    <Link
+      className="header__link"
+      replace={false}
+      to="/"
+    >
+      Main
+    </Link>
+    <Link
+      className="header__link"
+      replace={false}
+      to="/rockets"
+    >
+      Rockets
+    </Link>
+    <Link
+      className="header__link"
+      replace={false}
+      to="/launches"
+    >
+      Launches
+    </Link>
+    <Link
+      className="header__link"
+      replace={false}
+      to="/contacts"
+    >
+      Contacts
+    </Link>
+  </nav>
+</header>
+`;
+
+exports[`testing header component Header is matching snapshot 1`] = `
+<header
+  className="header"
+>
+  <div
+    className=" header__hamburger"
+    onClick={[Function]}
+    onKeyUp={[Function]}
+    role="menuitem"
+    tabIndex="0"
+  >
+    <span
+      className="header__hamburger-bar"
+    />
+    <span
+      className="header__hamburger-bar"
+    />
+    <span
+      className="header__hamburger-bar"
+    />
+  </div>
+  <nav
+    className=" header__nav"
+  >
+    <Link
+      className="header__link"
+      replace={false}
+      to="/"
+    >
+      Main
+    </Link>
+    <Link
+      className="header__link"
+      replace={false}
+      to="/rockets"
+    >
+      Rockets
+    </Link>
+    <Link
+      className="header__link"
+      replace={false}
+      to="/launches"
+    >
+      Launches
+    </Link>
+    <Link
+      className="header__link"
+      replace={false}
+      to="/contacts"
+    >
+      Contacts
+    </Link>
+  </nav>
+</header>
+`;

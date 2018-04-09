@@ -57,13 +57,20 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
+              ['env', { modules: false }],
               'es2015',
-              'stage-0',
+              'stage-2',
               'react',
             ],
             plugins: [
               'transform-runtime',
+              'syntax-dynamic-import',
             ],
+            env: {
+              test: {
+                plugins: ['dynamic-import-node'],
+              },
+            },
           },
         },
       },
