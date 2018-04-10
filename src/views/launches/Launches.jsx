@@ -31,6 +31,7 @@ class Launches extends Component<Props, State> {
       isLatestLaunch: true,
     };
   }
+
   componentDidMount() {
     this.onLaunchesMount();
   }

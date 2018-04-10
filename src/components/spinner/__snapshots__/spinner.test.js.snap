@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner is matching snapshot 1`] = `
+<div
+  className="spinner"
+>
+  <div
+    className="spinner__circle"
+  />
+  <div
+    className="spinner__circle spinner__circle--second"
+  />
+  <div
+    className="spinner__circle spinner__circle--third"
+  />
+  <div
+    className="spinner__circle spinner__circle--fourth"
+  />
+  <div
+    className="spinner__circle spinner__circle--fifth"
+  />
+</div>
+`;

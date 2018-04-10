@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing launches component Laucnhes mode toggling 1`] = `
+<div
+  className="launches"
+>
+  <form
+    action=""
+    className="launches__form"
+    onSubmit={[Function]}
+  >
+    <label
+      className="launches__label"
+      htmlFor="past-launches-radio"
+    >
+      I want to see the past (past launches)
+      <input
+        checked={true}
+        className="launches__radio"
+        id="past-launches-radio"
+        name="launch-mode"
+        onChange={[Function]}
+        type="radio"
+        value="latest"
+      />
+    </label>
+    <label
+      className="launches__label"
+      htmlFor="upcoming-launches-radio"
+    >
+      I want to see the future (upcoming launches)
+      <input
+        checked={false}
+        className="launches__radio"
+        id="upcoming-launches-radio"
+        name="launch-mode"
+        onChange={[Function]}
+        type="radio"
+        value="upcoming"
+      />
+    </label>
+    <label
+      className="launches__label"
+      htmlFor="launch-year"
+    >
+      Enter Year
+      <input
+        className="launches__input"
+        id="launch-year"
+        name="launch-year"
+        onChange={[Function]}
+        type="text"
+        value="2018"
+      />
+    </label>
+    <button
+      className="launches__submit"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+  <h2
+    className="launches__results-heading"
+  >
+    Latest Launch
+  </h2>
+  <div
+    className="launches__grid"
+  >
+    <Spinner />
+  </div>
+</div>
+`;
+
+exports[`Testing launches component Launches is matching snapshot 1`] = `
+<div
+  className="launches"
+>
+  <form
+    action=""
+    className="launches__form"
+    onSubmit={[Function]}
+  >
+    <label
+      className="launches__label"
+      htmlFor="past-launches-radio"
+    >
+      I want to see the past (past launches)
+      <input
+        checked={true}
+        className="launches__radio"
+        id="past-launches-radio"
+        name="launch-mode"
+        onChange={[Function]}
+        type="radio"
+        value="latest"
+      />
+    </label>
+    <label
+      className="launches__label"
+      htmlFor="upcoming-launches-radio"
+    >
+      I want to see the future (upcoming launches)
+      <input
+        checked={false}
+        className="launches__radio"
+        id="upcoming-launches-radio"
+        name="launch-mode"
+        onChange={[Function]}
+        type="radio"
+        value="upcoming"
+      />
+    </label>
+    <label
+      className="launches__label"
+      htmlFor="launch-year"
+    >
+      Enter Year
+      <input
+        className="launches__input"
+        id="launch-year"
+        name="launch-year"
+        onChange={[Function]}
+        type="text"
+        value="2018"
+      />
+    </label>
+    <button
+      className="launches__submit"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+  <h2
+    className="launches__results-heading"
+  >
+    Latest Launch
+  </h2>
+  <div
+    className="launches__grid"
+  >
+    <Spinner />
+  </div>
+</div>
+`;
