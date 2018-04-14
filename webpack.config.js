@@ -136,9 +136,6 @@ module.exports = {
       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
       React: 'React',
     }),
-    new webpack.DefinePlugin({
-      PRODUCTION: JSON.stringify(isProd),
-    }),
     new webpack.HotModuleReplacementPlugin(),
   ],
 };

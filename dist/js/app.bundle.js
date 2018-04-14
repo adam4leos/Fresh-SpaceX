@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e423a652fd9f1528c395"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d17cf06f91d46bbb0d91"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -27502,13 +27502,12 @@ function mapDispatchToProps(dispatch) {
 var ConnectedFreshSpaceX = (0, _reactRouter.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
 function App() {
-  var basename =  true ? '/Fresh-SpaceX' : '/';
   return _react2.default.createElement(
     _reactRedux.Provider,
     { store: _store2.default },
     _react2.default.createElement(
-      _reactRouterDom.BrowserRouter,
-      { basename: basename },
+      _reactRouterDom.Router,
+      { history: (0, _history.createBrowserHistory)() },
       _react2.default.createElement(ConnectedFreshSpaceX, null)
     )
   );

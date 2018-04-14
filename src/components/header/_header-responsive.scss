@@ -28,6 +28,7 @@
       align-items: center;
       opacity: 0;
       transition: width 600ms, height 600ms, opacity 900ms;
+      border-bottom: 3px solid #6637c5;
       &.active {
         width: 100%;
         height: 100%;

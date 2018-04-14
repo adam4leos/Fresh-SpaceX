@@ -5,7 +5,7 @@ import 'reset-css';
 import React from 'react';
 import { render } from 'react-dom';
 import {
-  BrowserRouter as Router,
+  Router,
   Route,
 } from 'react-router-dom';
 import { withRouter } from 'react-router';
@@ -91,10 +91,9 @@ function mapDispatchToProps(dispatch) {
 const ConnectedFreshSpaceX = withRouter(connect(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
 function App() {
-  const basename = PRODUCTION ? '/Fresh-SpaceX' : '/';
   return (
     <Provider store={store}>
-      <Router basename={basename}>
+      <Router history={createBrowserHistory()}>
         <ConnectedFreshSpaceX />
       </Router>
     </Provider>
