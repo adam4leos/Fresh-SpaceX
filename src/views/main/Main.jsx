@@ -40,7 +40,7 @@ class Main extends Component<Props> {
       <div className="main">
         <h1 className="main__heading">{name}</h1>
         <p className="main__description">{summary}</p>
-        <img src="/src/img/spacex.png" alt="spacex" className="main__image" />
+        <img src="src/img/spacex.png" alt="spacex" className="main__image" />
         <div className="main__information">
           <h2>CEO - {ceo}</h2>
           <h2>COO - {coo}</h2>
