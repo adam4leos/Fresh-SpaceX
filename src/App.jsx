@@ -31,13 +31,13 @@ if (container === null) {
 }
 
 type FreshSpaceXType = StoreType;
-console.log(process.env.PUBLIC_URL);
+
 const FreshSpaceX = (props: FreshSpaceXType) => (
   <div className="content">
     <Header />
     <Route
       exact
-      path={`${process.env.PUBLIC_URL}/`}
+      path="/"
       render={() => (
         <Main companyData={props.companyData} requestCompanyData={props.requestCompanyData} />
       )}
@@ -91,9 +91,10 @@ function mapDispatchToProps(dispatch) {
 const ConnectedFreshSpaceX = withRouter(connect(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
 function App() {
+  // TODO Het this basename from webpack, no hardcodes. Split to prod and dev.
   return (
     <Provider store={store}>
-      <Router history={createBrowserHistory()}>
+      <Router history={createBrowserHistory({ basename: '/Fresh-SpaceX' })}>
         <ConnectedFreshSpaceX />
       </Router>
     </Provider>
