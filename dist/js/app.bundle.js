@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dc81f3d6e5bd4c5f43d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9d55f789d186ebc326ee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -27367,7 +27367,7 @@ exports.default = Header;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
+
 
 var _extends2 = __webpack_require__(57);
 
@@ -27440,7 +27440,6 @@ if (container === null) {
   throw new Error('Container doesn\'t exist');
 }
 
-console.log(process.env.PUBLIC_URL);
 var FreshSpaceX = function FreshSpaceX(props) {
   return _react2.default.createElement(
     'div',
@@ -27448,7 +27447,7 @@ var FreshSpaceX = function FreshSpaceX(props) {
     _react2.default.createElement(_Header2.default, null),
     _react2.default.createElement(_reactRouterDom.Route, {
       exact: true,
-      path: process.env.PUBLIC_URL + '/',
+      path: '/',
       render: function render() {
         return _react2.default.createElement(_Main2.default, { companyData: props.companyData, requestCompanyData: props.requestCompanyData });
       }
@@ -27503,12 +27502,13 @@ function mapDispatchToProps(dispatch) {
 var ConnectedFreshSpaceX = (0, _reactRouter.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
 function App() {
+  // TODO Het this basename from webpack, no hardcodes. Split to prod and dev.
   return _react2.default.createElement(
     _reactRedux.Provider,
     { store: _store2.default },
     _react2.default.createElement(
       _reactRouterDom.Router,
-      { history: (0, _history.createBrowserHistory)() },
+      { history: (0, _history.createBrowserHistory)({ basename: '/Fresh-SpaceX' }) },
       _react2.default.createElement(ConnectedFreshSpaceX, null)
     )
   );
@@ -27517,7 +27517,6 @@ function App() {
 // TODO EMPTY DATA VALIDATIONS!!
 
 (0, _reactDom.render)(_react2.default.createElement(App, null), container);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 270 */
@@ -51703,7 +51702,7 @@ var Main = function (_Component) {
           { className: 'main__description' },
           summary
         ),
-        _react2.default.createElement('img', { src: 'src/img/spacex.png', alt: 'spacex', className: 'main__image' }),
+        _react2.default.createElement('img', { src: '/src/img/spacex.png', alt: 'spacex', className: 'main__image' }),
         _react2.default.createElement(
           'div',
           { className: 'main__information' },
