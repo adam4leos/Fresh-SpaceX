@@ -10,7 +10,7 @@ const RocketBlock = ({
   active: isRocketActive,
 }: RocketInfoType) => {
   /* eslint-disable global-require */
-  const imageSource: string = require(`../../img/${id}.jpg`);
+  const imageSource: string = require(`./../../img/${id}.jpg`);
   /* eslint-enable global-require */
 
   return (
