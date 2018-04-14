@@ -31,13 +31,13 @@ if (container === null) {
 }
 
 type FreshSpaceXType = StoreType;
-
+console.log(process.env.PUBLIC_URL);
 const FreshSpaceX = (props: FreshSpaceXType) => (
   <div className="content">
     <Header />
     <Route
       exact
-      path="/"
+      path={`${process.env.PUBLIC_URL}/`}
       render={() => (
         <Main companyData={props.companyData} requestCompanyData={props.requestCompanyData} />
       )}
