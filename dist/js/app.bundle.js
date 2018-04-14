@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "806e390cc44e5b30fa37"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f4bad0648b6560aecf69"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -11527,10 +11527,10 @@ var Redirect = function (_React$Component) {
   };
 
   Redirect.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
-    var prevTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["a" /* createLocation */])(prevProps.to);
-    var nextTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["a" /* createLocation */])(this.props.to);
+    var prevTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["createLocation"])(prevProps.to);
+    var nextTo = Object(__WEBPACK_IMPORTED_MODULE_4_history__["createLocation"])(this.props.to);
 
-    if (Object(__WEBPACK_IMPORTED_MODULE_4_history__["b" /* locationsAreEqual */])(prevTo, nextTo)) {
+    if (Object(__WEBPACK_IMPORTED_MODULE_4_history__["locationsAreEqual"])(prevTo, nextTo)) {
       __WEBPACK_IMPORTED_MODULE_2_warning___default()(false, 'You tried to redirect to the same route you\'re currently on: ' + ('"' + nextTo.pathname + nextTo.search + '"'));
       return;
     }
@@ -27357,6 +27357,8 @@ var _reactRouterDom = __webpack_require__(46);
 
 var _reactRouter = __webpack_require__(308);
 
+var _history = __webpack_require__(300);
+
 var _reactRedux = __webpack_require__(309);
 
 var _redux = __webpack_require__(50);
@@ -27403,16 +27405,13 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var container = document.getElementById('app-root');
-
 // TODO cleanup files, cosider two files here
-
+var container = document.getElementById('app-root');
 
 if (container === null) {
   throw new Error('Container doesn\'t exist');
 }
 
-var basename =  true ? '/Fresh-SpaceX' : '';
 var FreshSpaceX = function FreshSpaceX(props) {
   return _react2.default.createElement(
     'div',
@@ -27420,19 +27419,19 @@ var FreshSpaceX = function FreshSpaceX(props) {
     _react2.default.createElement(_Header2.default, null),
     _react2.default.createElement(_reactRouterDom.Route, {
       exact: true,
-      path: basename + '/',
+      path: '/',
       render: function render() {
         return _react2.default.createElement(_Main2.default, { companyData: props.companyData, requestCompanyData: props.requestCompanyData });
       }
     }),
     _react2.default.createElement(_reactRouterDom.Route, {
-      path: basename + '/rockets',
+      path: '/rockets',
       render: function render() {
         return _react2.default.createElement(_Rockets2.default, { rocketsData: props.rocketsData, requestRocketsData: props.requestRocketsData });
       }
     }),
     _react2.default.createElement(_reactRouterDom.Route, {
-      path: basename + '/rockets/:id',
+      path: '/rockets/:id',
       render: function render() {
         return _react2.default.createElement(_RocketInfo2.default, (0, _extends3.default)({}, props.location.state.rocketInfo, {
           isMetricSystem: props.measurementSystem.isMetricSystem,
@@ -27442,7 +27441,7 @@ var FreshSpaceX = function FreshSpaceX(props) {
     }),
     _react2.default.createElement(_reactRouterDom.Route, {
       exact: true,
-      path: basename + '/launches',
+      path: '/launches',
       render: function render() {
         return _react2.default.createElement(_Launches2.default, {
           launches: props.launches,
@@ -27452,10 +27451,10 @@ var FreshSpaceX = function FreshSpaceX(props) {
         });
       }
     }),
-    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: basename + '/launches/:id', render: function render() {
+    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/launches/:id', render: function render() {
         return _react2.default.createElement(_LaunchInfo2.default, props.location.state.launchData);
       } }),
-    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: basename + '/contacts', component: _Contacts2.default })
+    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/contacts', component: _Contacts2.default })
   );
 };
 
@@ -27475,12 +27474,13 @@ function mapDispatchToProps(dispatch) {
 var ConnectedFreshSpaceX = (0, _reactRouter.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
 function App() {
+  var basename =  true ? '/Fresh-SpaceX' : '/';
   return _react2.default.createElement(
     _reactRedux.Provider,
     { store: _store2.default },
     _react2.default.createElement(
-      _reactRouterDom.HashRouter,
-      null,
+      _reactRouterDom.Router,
+      { history: (0, _history.createBrowserHistory)({ basename: basename }) },
       _react2.default.createElement(ConnectedFreshSpaceX, null)
     )
   );
@@ -47019,18 +47019,19 @@ module.exports = Array.isArray || function (arr) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(301);
-/* unused harmony reexport createBrowserHistory */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createBrowserHistory", function() { return __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(302);
-/* unused harmony reexport createHashHistory */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createHashHistory", function() { return __WEBPACK_IMPORTED_MODULE_1__createHashHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(303);
-/* unused harmony reexport createMemoryHistory */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createMemoryHistory", function() { return __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(49);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createLocation", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "locationsAreEqual", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(33);
-/* unused harmony reexport parsePath */
-/* unused harmony reexport createPath */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "parsePath", function() { return __WEBPACK_IMPORTED_MODULE_4__PathUtils__["d"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "createPath", function() { return __WEBPACK_IMPORTED_MODULE_4__PathUtils__["b"]; });
 
 
 
@@ -47343,7 +47344,7 @@ var createBrowserHistory = function createBrowserHistory() {
   return history;
 };
 
-/* unused harmony default export */ var _unused_webpack_default_export = (createBrowserHistory);
+/* harmony default export */ __webpack_exports__["a"] = (createBrowserHistory);
 
 /***/ }),
 /* 302 */
@@ -47664,7 +47665,7 @@ var createHashHistory = function createHashHistory() {
   return history;
 };
 
-/* unused harmony default export */ var _unused_webpack_default_export = (createHashHistory);
+/* harmony default export */ __webpack_exports__["a"] = (createHashHistory);
 
 /***/ }),
 /* 303 */
@@ -47832,7 +47833,7 @@ var createMemoryHistory = function createMemoryHistory() {
   return history;
 };
 
-/* unused harmony default export */ var _unused_webpack_default_export = (createMemoryHistory);
+/* harmony default export */ __webpack_exports__["a"] = (createMemoryHistory);
 
 /***/ }),
 /* 304 */

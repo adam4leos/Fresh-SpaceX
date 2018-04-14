@@ -5,10 +5,11 @@ import 'reset-css';
 import React from 'react';
 import { render } from 'react-dom';
 import {
-  HashRouter as Router,
+  Router,
   Route,
 } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import { createBrowserHistory } from 'history';
 import { Provider, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import store from './store';
@@ -31,25 +32,24 @@ if (container === null) {
 
 type FreshSpaceXType = StoreType;
 
-const basename = PRODUCTION ? '/Fresh-SpaceX' : '';
 const FreshSpaceX = (props: FreshSpaceXType) => (
   <div className="content">
     <Header />
     <Route
       exact
-      path={`${basename}/`}
+      path="/"
       render={() => (
         <Main companyData={props.companyData} requestCompanyData={props.requestCompanyData} />
       )}
     />
     <Route
-      path={`${basename}/rockets`}
+      path="/rockets"
       render={() => (
         <Rockets rocketsData={props.rocketsData} requestRocketsData={props.requestRocketsData} />
       )}
     />
     <Route
-      path={`${basename}/rockets/:id`}
+      path="/rockets/:id"
       render={() => (
         <RocketInfo
           {...props.location.state.rocketInfo}
@@ -60,7 +60,7 @@ const FreshSpaceX = (props: FreshSpaceXType) => (
     />
     <Route
       exact
-      path={`${basename}/launches`}
+      path="/launches"
       render={() => (
         <Launches
           launches={props.launches}
@@ -70,8 +70,8 @@ const FreshSpaceX = (props: FreshSpaceXType) => (
         />
       )}
     />
-    <Route exact path={`${basename}/launches/:id`} render={() => <LaunchInfo {...props.location.state.launchData} />} />
-    <Route exact path={`${basename}/contacts`} component={Contacts} />
+    <Route exact path="/launches/:id" render={() => <LaunchInfo {...props.location.state.launchData} />} />
+    <Route exact path="/contacts" component={Contacts} />
   </div>
 );
 
@@ -91,9 +91,10 @@ function mapDispatchToProps(dispatch) {
 const ConnectedFreshSpaceX = withRouter(connect(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
 function App() {
+  const basename = PRODUCTION ? '/Fresh-SpaceX' : '/';
   return (
     <Provider store={store}>
-      <Router>
+      <Router history={createBrowserHistory({ basename })}>
         <ConnectedFreshSpaceX />
       </Router>
     </Provider>
