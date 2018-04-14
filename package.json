@@ -9,7 +9,7 @@
       "./jestSetup.js"
     ],
     "moduleNameMapper": {
-      "\\.(css|less|scss)$": "identity-obj-proxy"
+      "\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
     },
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing LaunchBlock component LaunchBlock is matching snapshot 1`] = `
+<div
+  className="launch-block"
+>
+  <span
+    className="launch-block__status"
+  >
+    Succeeded
+  </span>
+  <div
+    className="launch-block__info"
+  >
+    <h3
+      className="launch-block__heading"
+    >
+      Launch #
+      1
+    </h3>
+    <p
+      className="launch-block__description"
+    >
+      galcon
+       in 
+      24 Dec, 50253 (8:48am)
+    </p>
+  </div>
+  <img
+    alt="launch_patch"
+    className="launch-block__patch"
+    src="123"
+  />
+</div>
+`;
+
+exports[`Testing LaunchBlock component LaunchBlock properly working with empty 1`] = `
+<div
+  className="launch-block"
+>
+  <div
+    className="launch-block__info"
+  >
+    <h3
+      className="launch-block__heading"
+    >
+      Launch #
+      1
+    </h3>
+    <p
+      className="launch-block__description"
+    >
+      galcon
+       in 
+      24 Dec, 50253 (8:48am)
+    </p>
+  </div>
+  <img
+    alt="launch_patch"
+    className="launch-block__patch"
+    src="123"
+  />
+</div>
+`;
+
+exports[`Testing LaunchBlock component LaunchBlock properly working with empty 2`] = `
+<div
+  className="launch-block"
+>
+  <span
+    className="launch-block__status"
+  >
+    Succeeded
+  </span>
+  <div
+    className="launch-block__info"
+  >
+    <h3
+      className="launch-block__heading"
+    >
+      Launch #
+      1
+    </h3>
+    <p
+      className="launch-block__description"
+    >
+      galcon
+       in 
+      24 Dec, 50253 (8:48am)
+    </p>
+  </div>
+  <img
+    alt="launch_patch"
+    className="launch-block__patch"
+    src="123"
+  />
+</div>
+`;
+
+exports[`Testing LaunchBlock component LaunchBlock properly working with empty 3`] = `
+<div
+  className="launch-block"
+>
+  <span
+    className="launch-block__status"
+  >
+    Failed
+  </span>
+  <div
+    className="launch-block__info"
+  >
+    <h3
+      className="launch-block__heading"
+    >
+      Launch #
+      1
+    </h3>
+    <p
+      className="launch-block__description"
+    >
+      galcon
+       in 
+      24 Dec, 50253 (8:48am)
+    </p>
+  </div>
+  <img
+    alt="launch_patch"
+    className="launch-block__patch"
+    src="123"
+  />
+</div>
+`;
+
+exports[`Testing LaunchBlock component LaunchBlock properly working with empty links object (no mission patch) 1`] = `
+<div
+  className="launch-block"
+>
+  <span
+    className="launch-block__status"
+  >
+    Succeeded
+  </span>
+  <div
+    className="launch-block__info"
+  >
+    <h3
+      className="launch-block__heading"
+    >
+      Launch #
+      1
+    </h3>
+    <p
+      className="launch-block__description"
+    >
+      galcon
+       in 
+      24 Dec, 50253 (8:48am)
+    </p>
+  </div>
+  <img
+    alt="launch_patch"
+    className="launch-block__patch"
+    src={null}
+  />
+</div>
+`;
