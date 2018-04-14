@@ -540,8 +540,7 @@ table {
       top: 45px; }
   .header__nav {
     display: flex;
-    justify-content: center;
-    border-bottom: 3px solid #6637c5; }
+    justify-content: center; }
   .header__link {
     padding: 20px;
     font-size: 20px;
@@ -579,7 +578,8 @@ table {
       flex-direction: column;
       align-items: center;
       opacity: 0;
-      transition: width 600ms, height 600ms, opacity 900ms; }
+      transition: width 600ms, height 600ms, opacity 900ms;
+      border-bottom: 3px solid #6637c5; }
       .header__nav.active {
         width: 100%;
         height: 100%;

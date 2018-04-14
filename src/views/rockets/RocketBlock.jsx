@@ -9,8 +9,9 @@ const RocketBlock = ({
   name,
   active: isRocketActive,
 }: RocketInfoType) => {
+  // TODO change those requires
   /* eslint-disable global-require */
-  const imageSource: string = require(`./../../img/${id}.jpg`);
+  const imageSource: string = require(`../../img/${id}.jpg`);
   /* eslint-enable global-require */
 
   return (
