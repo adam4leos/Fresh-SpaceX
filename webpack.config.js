@@ -17,8 +17,8 @@ const cssProd = ExtractTextPlugin.extract({
 });
 const imgOptionsProd = {
   name: '[name]-[hash:12].[ext]',
-  outputPath: '/img/',
-  publicPath: path.resolve(__dirname, 'dist/'),
+  outputPath: 'img/',
+  publicPath: './dist/',
 };
 const imgOptionsDev = {
   name: '[name]-[hash:8].[ext]',
@@ -135,6 +135,9 @@ module.exports = {
       Promise: 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise',
       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
       React: 'React',
+    }),
+    new webpack.DefinePlugin({
+      PRODUCTION: JSON.stringify(isProd),
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

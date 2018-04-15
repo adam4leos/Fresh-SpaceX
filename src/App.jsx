@@ -9,7 +9,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory, createHashHistory } from 'history';
 import { Provider, connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import store from './store';
@@ -90,10 +90,11 @@ function mapDispatchToProps(dispatch) {
 
 const ConnectedFreshSpaceX = withRouter(connect(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
+const historyToUse = PRODUCTION ? createHashHistory : createBrowserHistory;
 function App() {
   return (
     <Provider store={store}>
-      <Router history={createBrowserHistory()}>
+      <Router history={historyToUse()}>
         <ConnectedFreshSpaceX />
       </Router>
     </Provider>

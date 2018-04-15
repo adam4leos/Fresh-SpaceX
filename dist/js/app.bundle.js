@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ba03080c6196e13b0c7c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "399cb861eecd8ebd1494"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -27501,13 +27501,14 @@ function mapDispatchToProps(dispatch) {
 
 var ConnectedFreshSpaceX = (0, _reactRouter.withRouter)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FreshSpaceX));
 
+var historyToUse =  true ? _history.createHashHistory : _history.createBrowserHistory;
 function App() {
   return _react2.default.createElement(
     _reactRedux.Provider,
     { store: _store2.default },
     _react2.default.createElement(
       _reactRouterDom.Router,
-      { history: (0, _history.createBrowserHistory)() },
+      { history: historyToUse() },
       _react2.default.createElement(ConnectedFreshSpaceX, null)
     )
   );
@@ -53060,7 +53061,7 @@ var RocketBlock = function RocketBlock(_ref) {
       name = _ref.name,
       isRocketActive = _ref.active;
 
-  /* eslint-disable global-require */
+  // TODO change those requires
   var imageSource = __webpack_require__(410)("./" + id + '.jpg');
   /* eslint-enable global-require */
 
@@ -53116,19 +53117,19 @@ webpackContext.id = 410;
 /* 411 */
 /***/ (function(module, exports) {
 
-module.exports = "/Users/admin/Dev/FreshSpaceX/dist/img/falcon1-bce675f2fc5c.jpg";
+module.exports = "./dist/img/falcon1-bce675f2fc5c.jpg";
 
 /***/ }),
 /* 412 */
 /***/ (function(module, exports) {
 
-module.exports = "/Users/admin/Dev/FreshSpaceX/dist/img/falcon9-eb326e93e0a7.jpg";
+module.exports = "./dist/img/falcon9-eb326e93e0a7.jpg";
 
 /***/ }),
 /* 413 */
 /***/ (function(module, exports) {
 
-module.exports = "/Users/admin/Dev/FreshSpaceX/dist/img/falconheavy-d7e51aa08425.jpg";
+module.exports = "./dist/img/falconheavy-d7e51aa08425.jpg";
 
 /***/ }),
 /* 414 */
@@ -54319,7 +54320,7 @@ webpackContext.id = 425;
 /* 427 */
 /***/ (function(module, exports) {
 
-module.exports = "/Users/admin/Dev/FreshSpaceX/dist/img/missing-951f288b4fd2.png";
+module.exports = "./dist/img/missing-951f288b4fd2.png";
 
 /***/ }),
 /* 428 */
