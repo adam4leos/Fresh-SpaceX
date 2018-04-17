@@ -6,6 +6,7 @@ import {
   HANDLE_COMPANY_DATA_FAIL,
   REQUEST_ROCKETS_DATA,
   RECEIVE_ROCKETS_DATA,
+  HANDLE_ROCKETS_DATA_FAIL,
   REQUEST_LAUNCHES_DATA,
   RECEIVE_LAUNCHES_DATA,
   HANDLE_LAUNCHES_DATA_FAIL,
@@ -49,6 +50,13 @@ export function receiveRocketsData(rocketsData: RocketsDataType) {
   return {
     type: RECEIVE_ROCKETS_DATA,
     rocketsData,
+  };
+}
+
+export function handleRocketsDataFail(error: Error) {
+  return {
+    type: HANDLE_ROCKETS_DATA_FAIL,
+    error,
   };
 }
 

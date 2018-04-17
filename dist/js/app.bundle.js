@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fc09113720a26c0056e4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f6de3edc897f36efbdbb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -6415,6 +6415,7 @@ var HANDLE_COMPANY_DATA_FAIL = exports.HANDLE_COMPANY_DATA_FAIL = 'HANDLE_COMPAN
 // rockets
 var REQUEST_ROCKETS_DATA = exports.REQUEST_ROCKETS_DATA = 'REQUEST_ROCKETS_DATA';
 var RECEIVE_ROCKETS_DATA = exports.RECEIVE_ROCKETS_DATA = 'RECEIVE_ROCKETS_DATA';
+var HANDLE_ROCKETS_DATA_FAIL = exports.HANDLE_ROCKETS_DATA_FAIL = 'HANDLE_ROCKETS_DATA_FAIL';
 
 // launches
 var REQUEST_LAUNCHES_DATA = exports.REQUEST_LAUNCHES_DATA = 'REQUEST_LAUNCHES_DATA';
@@ -9411,6 +9412,7 @@ exports.receiveCompanyData = receiveCompanyData;
 exports.handleCompanyDataFail = handleCompanyDataFail;
 exports.requestRocketsData = requestRocketsData;
 exports.receiveRocketsData = receiveRocketsData;
+exports.handleRocketsDataFail = handleRocketsDataFail;
 exports.requestLaunchesData = requestLaunchesData;
 exports.receiveLaunchesData = receiveLaunchesData;
 exports.handleLaunchesDataFail = handleLaunchesDataFail;
@@ -9450,6 +9452,13 @@ function receiveRocketsData(rocketsData) {
   return {
     type: _actionTypes.RECEIVE_ROCKETS_DATA,
     rocketsData: rocketsData
+  };
+}
+
+function handleRocketsDataFail(error) {
+  return {
+    type: _actionTypes.HANDLE_ROCKETS_DATA_FAIL,
+    error: error
   };
 }
 
@@ -27439,22 +27448,18 @@ if (container === null) {
   throw new Error('Container doesn\'t exist');
 }
 
-// a bit dirty way to get prod env, coming from webpack
-var historyToUse =  true ? _history.createHashHistory : _history.createBrowserHistory;
-
+// TODO consider one more build command for local files
 function App() {
   return _react2.default.createElement(
     _reactRedux.Provider,
     { store: _store2.default },
     _react2.default.createElement(
       _reactRouterDom.Router,
-      { history: historyToUse() },
+      { history: (0, _history.createBrowserHistory)() },
       _react2.default.createElement(_ConnectedFreshSpaceX2.default, null)
     )
   );
 }
-
-// TODO EMPTY DATA VALIDATIONS!!
 
 (0, _reactDom.render)(_react2.default.createElement(App, null), container);
 
@@ -49584,6 +49589,10 @@ function rocketsData() {
       {
         return action.rocketsData;
       }
+    case _actionTypes.HANDLE_ROCKETS_DATA_FAIL:
+      {
+        return { error: action.error };
+      }
     default:
       return state;
   }
@@ -51378,16 +51387,16 @@ function requestRocketsData(action) {
           return (0, _effects.put)((0, _actionCreators.receiveRocketsData)(rocketsData));
 
         case 6:
-          _context.next = 11;
+          _context.next = 12;
           break;
 
         case 8:
           _context.prev = 8;
           _context.t0 = _context['catch'](0);
+          _context.next = 12;
+          return (0, _effects.put)((0, _actionCreators.handleRocketsDataFail)(_context.t0));
 
-          console.log(_context.t0);
-
-        case 11:
+        case 12:
         case 'end':
           return _context.stop();
       }
@@ -51748,6 +51757,7 @@ var Main = function (_Component) {
           valuation = _props$companyData.valuation,
           error = _props$companyData.error;
 
+      // TODO use isFetching finally...
 
       if ((0, _keys2.default)(this.props.companyData).length === 0) {
         return _react2.default.createElement(
@@ -53083,10 +53093,24 @@ var Rockets = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      if (this.props.rocketsData.length === 0) {
+        return _react2.default.createElement(
+          'div',
+          { className: 'main__spinner' },
+          _react2.default.createElement(_Spinner2.default, null)
+        );
+      } else if (this.props.rocketsData.error !== undefined) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          this.props.rocketsData.error.toString()
+        );
+      }
+
       return _react2.default.createElement(
         'div',
         { className: 'rockets' },
-        this.props.rocketsData.length > 0 ? this.props.rocketsData.map(function (rocketInfo) {
+        this.props.rocketsData.map(function (rocketInfo) {
           var rocketID = rocketInfo.id;
           var linkLocation = {
             pathname: '/rockets/' + rocketID,
@@ -53098,7 +53122,7 @@ var Rockets = function (_Component) {
             { to: linkLocation, key: rocketID, className: 'rockets__link', activeClassName: 'rockets__link--active' },
             _react2.default.createElement(_RocketBlock2.default, rocketInfo)
           );
-        }) : _react2.default.createElement(_Spinner2.default, null)
+        })
       );
     }
   }]);
@@ -53187,19 +53211,19 @@ webpackContext.id = 411;
 /* 412 */
 /***/ (function(module, exports) {
 
-module.exports = "./dist/img/falcon1-bce675f2fc5c.jpg";
+module.exports = "/dist/img/falcon1-bce675f2fc5c.jpg";
 
 /***/ }),
 /* 413 */
 /***/ (function(module, exports) {
 
-module.exports = "./dist/img/falcon9-eb326e93e0a7.jpg";
+module.exports = "/dist/img/falcon9-eb326e93e0a7.jpg";
 
 /***/ }),
 /* 414 */
 /***/ (function(module, exports) {
 
-module.exports = "./dist/img/falconheavy-d7e51aa08425.jpg";
+module.exports = "/dist/img/falconheavy-d7e51aa08425.jpg";
 
 /***/ }),
 /* 415 */
@@ -53260,6 +53284,7 @@ var RocketInfo = function RocketInfo(_ref) {
       _react2.default.createElement(_reactToggle2.default, {
         defaultChecked: isMetricSystem,
         onChange: toggleMetricSystem,
+        className: 'rocket-info__toggle',
         icons: false,
         id: 'measurement-toggle'
       }),
@@ -54403,7 +54428,7 @@ webpackContext.id = 426;
 /* 428 */
 /***/ (function(module, exports) {
 
-module.exports = "./dist/img/missing-951f288b4fd2.png";
+module.exports = "/dist/img/missing-951f288b4fd2.png";
 
 /***/ }),
 /* 429 */

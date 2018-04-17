@@ -27,11 +27,11 @@ const RocketInfo = ({
 
   return (
     <div className="rocket-info">
-      {/* TODO repaint switcher */}
       <label htmlFor="measurement-toggle" className="rocket-info__measurement">
         <Toggle
           defaultChecked={isMetricSystem}
           onChange={toggleMetricSystem}
+          className="rocket-info__toggle"
           icons={false}
           id="measurement-toggle"
         />

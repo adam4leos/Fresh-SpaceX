@@ -37,6 +37,7 @@ class Main extends Component<Props> {
       error,
     } = this.props.companyData;
 
+    // TODO use isFetching finally...
     if (Object.keys(this.props.companyData).length === 0) {
       return (
         <div className="main__spinner">

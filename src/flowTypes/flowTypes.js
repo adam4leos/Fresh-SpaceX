@@ -29,6 +29,7 @@ export type RocketInfoType = {
   description: string,
   isMetricSystem: boolean,
   active: boolean,
+  error: Error,
   toggleMetricSystem: () => { type: string },
 }
 
@@ -129,4 +130,5 @@ export type StoreType = {
 export type ActionType = {
   ...$Exact<StoreType>,
   type: string,
+  error: Error,
 }

@@ -9,7 +9,7 @@ import type { RocketsDataType, RequestRocketsDataType } from '../../flowTypes/fl
 
 type Props = {
   rocketsData: RocketsDataType,
-  requestRocketsData: RequestRocketsDataType, 
+  requestRocketsData: RequestRocketsDataType,
 };
 
 class Rockets extends Component<Props> {
@@ -24,10 +24,19 @@ class Rockets extends Component<Props> {
   }
 
   render() {
+    if (this.props.rocketsData.length === 0) {
+      return (
+        <div className="main__spinner">
+          <Spinner />
+        </div>
+      );
+    } else if (this.props.rocketsData.error !== undefined) {
+      return <div>{this.props.rocketsData.error.toString()}</div>;
+    }
+
     return (
       <div className="rockets">
-        {this.props.rocketsData.length > 0 ?
-          this.props.rocketsData.map((rocketInfo) => {
+        {this.props.rocketsData.map((rocketInfo) => {
             const rocketID = rocketInfo.id;
             const linkLocation = {
               pathname: `/rockets/${rocketID}`,
@@ -39,7 +48,7 @@ class Rockets extends Component<Props> {
                 <RocketBlock {...rocketInfo} />
               </NavLink>
             );
-        }) : (<Spinner />)}
+        })}
       </div>
     );
   }

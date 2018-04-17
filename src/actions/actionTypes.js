@@ -8,6 +8,7 @@ export const HANDLE_COMPANY_DATA_FAIL: string = 'HANDLE_COMPANY_DATA_FAIL';
 // rockets
 export const REQUEST_ROCKETS_DATA: string = 'REQUEST_ROCKETS_DATA';
 export const RECEIVE_ROCKETS_DATA: string = 'RECEIVE_ROCKETS_DATA';
+export const HANDLE_ROCKETS_DATA_FAIL: string = 'HANDLE_ROCKETS_DATA_FAIL';
 
 // launches
 export const REQUEST_LAUNCHES_DATA: string = 'REQUEST_LAUNCHES_DATA';

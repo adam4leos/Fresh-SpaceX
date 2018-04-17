@@ -18,7 +18,7 @@ const cssProd = ExtractTextPlugin.extract({
 const imgOptionsProd = {
   name: '[name]-[hash:12].[ext]',
   outputPath: 'img/',
-  publicPath: './dist/',
+  publicPath: '/dist/',
 };
 const imgOptionsDev = {
   name: '[name]-[hash:8].[ext]',

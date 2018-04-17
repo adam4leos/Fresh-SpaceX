@@ -42,4 +42,18 @@
       border-right: 2px solid #6637c5;
     }
   }
+  &__toggle {
+    &.react-toggle--checked {
+      > .react-toggle-track {
+        background-color: #6637c5;
+      }
+      &:hover:not(.react-toggle--disabled) .react-toggle-track {
+        background-color: #8952f9;
+      }
+    }
+    > .react-toggle-thumb {
+      border-color: #141417;
+      background-color: #655ce6;
+    }
+  }
 }

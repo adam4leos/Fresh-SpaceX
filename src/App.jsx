@@ -4,7 +4,7 @@ import 'reset-css';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router } from 'react-router-dom';
-import { createBrowserHistory, createHashHistory } from 'history';
+import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
 
 import store from './store';
@@ -18,20 +18,16 @@ if (container === null) {
   throw new Error('Container doesn\'t exist');
 }
 
-// a bit dirty way to get prod env, coming from webpack
-const historyToUse = PRODUCTION ? createHashHistory : createBrowserHistory;
-
+// TODO consider one more build command for local files
 function App() {
   return (
     <Provider store={store}>
-      <Router history={historyToUse()}>
+      <Router history={createBrowserHistory()}>
         <ConnectedFreshSpaceX />
       </Router>
     </Provider>
   );
 }
-
-// TODO EMPTY DATA VALIDATIONS!!
 
 render(
   <App />,
