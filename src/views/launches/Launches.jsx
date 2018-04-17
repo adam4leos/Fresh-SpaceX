@@ -70,6 +70,7 @@ class Launches extends Component<Props, State> {
       isPastLaunches,
       launchesData,
       launchYear,
+      error,
     } = this.props.launches;
     const { isLatestLaunch } = this.state;
 
@@ -115,19 +116,27 @@ class Launches extends Component<Props, State> {
         </form>
         <h2 className="launches__results-heading">{isLatestLaunch ? 'Latest Launch' : launchYear }</h2>
         <div className="launches__grid">
-          {launchesData.length > 0 ? launchesData.map((launchData, index) => {
-            const flightNumber = launchData.flight_number;
-            const linkLocation = {
-              pathname: `/launches/${flightNumber}`,
-              state: { launchData },
-            };
+          {(() => {
+            if (error !== undefined) {
+              return <div>{error.toString()}</div>;
+            } else if (launchesData.length === 0) {
+              return <Spinner />;
+            }
 
-            return (
-              <Link to={linkLocation} key={flightNumber} className="launches__link">
-                <LaunchBlock {...launchData} />
-              </Link>
-            );
-          }) : (<Spinner />)}
+            return launchesData.map((launchData, index) => {
+              const flightNumber = launchData.flight_number;
+              const linkLocation = {
+                pathname: `/launches/${flightNumber}`,
+                state: { launchData },
+              };
+
+              return (
+                <Link to={linkLocation} key={flightNumber} className="launches__link">
+                  <LaunchBlock {...launchData} />
+                </Link>
+              );
+            });
+          })()}
         </div>
       </div>
     );

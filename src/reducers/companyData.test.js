@@ -1,3 +1,5 @@
+// TODO test errors here and in all ltests here
+
 import companyData from './companyData';
 import * as types from '../actions/actionTypes';
 

@@ -44,6 +44,7 @@ export type CompanyDataType = {
   founded: number,
   founder: string,
   valuation: number,
+  error: Error,
 }
 
 export type LaunchDataType = {
@@ -86,6 +87,7 @@ export type LaunchesType = {
   launchesData: Array<LaunchDataType>,
   isPastLaunches: boolean,
   launchYear: string,
+  error: Error,
 }
 
 export type RequestCompanyDataType = () => {| type: string |};

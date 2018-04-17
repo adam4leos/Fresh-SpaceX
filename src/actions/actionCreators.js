@@ -3,10 +3,12 @@
 import {
   REQUEST_COMPANY_DATA,
   RECEIVE_COMPANY_DATA,
+  HANDLE_COMPANY_DATA_FAIL,
   REQUEST_ROCKETS_DATA,
   RECEIVE_ROCKETS_DATA,
   REQUEST_LAUNCHES_DATA,
   RECEIVE_LAUNCHES_DATA,
+  HANDLE_LAUNCHES_DATA_FAIL,
   TOGGLE_LAUNCHES_MODE,
   CHANGE_LAUNCH_YEAR,
   TOGGLE_METRIC_SYSTEM,
@@ -27,6 +29,13 @@ export function receiveCompanyData(companyData: CompanyDataType) {
   return {
     type: RECEIVE_COMPANY_DATA,
     companyData,
+  };
+}
+
+export function handleCompanyDataFail(error: Error) {
+  return {
+    type: HANDLE_COMPANY_DATA_FAIL,
+    error,
   };
 }
 
@@ -54,6 +63,13 @@ export function receiveLaunchesData(launchesData: LaunchDataType) {
   return {
     type: RECEIVE_LAUNCHES_DATA,
     launchesData,
+  };
+}
+
+export function handleLaunchesDataFail(error: Error) {
+  return {
+    type: HANDLE_LAUNCHES_DATA_FAIL,
+    error,
   };
 }
 

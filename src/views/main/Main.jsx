@@ -34,9 +34,20 @@ class Main extends Component<Props> {
       founded,
       founder,
       valuation,
+      error,
     } = this.props.companyData;
 
-    return Object.keys(this.props.companyData).length !== 0 ? (
+    if (Object.keys(this.props.companyData).length === 0) {
+      return (
+        <div className="main__spinner">
+          <Spinner />
+        </div>
+      );
+    } else if (error !== undefined) {
+      return <div>{error.toString()}</div>;
+    }
+
+    return (
       <div className="main">
         <h1 className="main__heading">{name}</h1>
         <p className="main__description">{summary}</p>
@@ -50,10 +61,6 @@ class Main extends Component<Props> {
           <h3>Founder - {founder}</h3>
           <h3>Valuation - {valuation}</h3>
         </div>
-      </div>
-    ) : (
-      <div className="main__spinner">
-        <Spinner />
       </div>
     );
   }

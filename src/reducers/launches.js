@@ -4,6 +4,7 @@ import {
   RECEIVE_LAUNCHES_DATA,
   TOGGLE_LAUNCHES_MODE,
   CHANGE_LAUNCH_YEAR,
+  HANDLE_LAUNCHES_DATA_FAIL,
 } from './../actions/actionTypes';
 import type { StoreType, ActionType, LaunchesType } from '../flowTypes/flowTypes';
 
@@ -11,6 +12,7 @@ type LaunchesActionType = {
   ...$Exact<ActionType>,
   launchesData: LaunchesType,
   launchYear: string,
+  error: Error,
 }
 
 function launches(state: StoreType = {}, action: LaunchesActionType) {
@@ -22,6 +24,14 @@ function launches(state: StoreType = {}, action: LaunchesActionType) {
       return {
         ...state,
         launchesData: newLaunchesDataArray,
+      };
+    }
+
+    case HANDLE_LAUNCHES_DATA_FAIL: {
+      console.log(action.error);
+      return {
+        ...state,
+        error: action.error,
       };
     }
 
