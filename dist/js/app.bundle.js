@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f6de3edc897f36efbdbb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e622cc91a8fd9e98b218"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -49637,7 +49637,6 @@ function launches() {
 
     case _actionTypes.HANDLE_LAUNCHES_DATA_FAIL:
       {
-        console.log(action.error);
         return (0, _extends3.default)({}, state, {
           error: action.error
         });
@@ -53958,8 +53957,7 @@ var Launches = function (_Component) {
     };
 
     _this.onLaunchYearChange = function (event) {
-      var newEnteredYear = event.target.value;
-
+      var newEnteredYear = event.target.value.replace(/[^0-9.]/g, '');
       _this.props.changeLaunchYear(newEnteredYear);
     };
 
@@ -54054,7 +54052,7 @@ var Launches = function (_Component) {
         _react2.default.createElement(
           'h2',
           { className: 'launches__results-heading' },
-          isLatestLaunch ? 'Latest Launch' : launchYear
+          isLatestLaunch ? 'Latest Launch' : 'Year: ' + launchYear
         ),
         _react2.default.createElement(
           'div',

@@ -160,6 +160,13 @@ table {
     transition: transform 400ms; }
     .rockets__link--active {
       transform: scale(1.1); }
+
+@media screen and (max-width: 768px) {
+  .rockets {
+    flex-wrap: wrap; }
+    .rockets__link {
+      width: 100%;
+      margin-bottom: 30px; } }
 .react-toggle {
   touch-action: pan-x;
   display: inline-block;
@@ -322,6 +329,12 @@ table {
   .rocket-info__toggle > .react-toggle-thumb {
     border-color: #141417;
     background-color: #655ce6; }
+
+@media screen and (max-width: 768px) {
+  .rocket-info {
+    flex-wrap: wrap; }
+    .rocket-info__details, .rocket-info__table {
+      width: 100%; } }
 .launch-block {
   display: flex;
   text-align: center;
@@ -408,6 +421,24 @@ table {
   .launches__link:hover {
     transform: scale(1.05);
     border-color: #374888; }
+
+@media screen and (max-width: 768px) {
+  .launches__form {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center; }
+  .launches__label {
+    width: 100%; }
+  .launches__submit {
+    width: 100%;
+    padding: 20px; }
+  .launches__link {
+    width: calc(100% / 2 - 20px); } }
+
+@media screen and (max-width: 480px) {
+  .launches__link {
+    width: 100%;
+    margin-right: 0; } }
 .launch-info {
   display: flex;
   flex-direction: column; }
@@ -495,6 +526,14 @@ table {
       background: -ms-linear-gradient(top, rgba(250, 50, 0, 0.92) 0%, rgba(250, 50, 0, 0.89) 9%, rgba(250, 111, 0, 0.85) 19%, rgba(250, 129, 0, 0.82) 22%, rgba(255, 255, 255, 0.18) 83%, rgba(255, 255, 255, 0) 100%);
       background: linear-gradient(to bottom, rgba(250, 50, 0, 0.92) 0%, rgba(250, 50, 0, 0.89) 9%, rgba(250, 111, 0, 0.85) 19%, rgba(250, 129, 0, 0.82) 22%, rgba(255, 255, 255, 0.18) 83%, rgba(255, 255, 255, 0) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa3200', endColorstr='#ffffff', GradientType=0 ); }
+
+@media screen and (max-width: 768px) {
+  .launch-info__information {
+    flex-direction: column; } }
+
+@media screen and (max-width: 480px) {
+  .launch-info__first-stage, .launch-info__second-stage {
+    width: 100%; } }
 .contacts {
   width: 100%;
   padding: 20px;

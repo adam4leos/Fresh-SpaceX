@@ -1,0 +1,16 @@
+@media screen and (max-width: 768px) {
+  .launch-info {
+    &__information {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .launch-info {
+    &__first-stage,
+    &__second-stage {
+      width: 100%;
+    }
+  }
+}

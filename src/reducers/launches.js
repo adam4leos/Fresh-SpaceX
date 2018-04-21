@@ -28,7 +28,6 @@ function launches(state: StoreType = {}, action: LaunchesActionType) {
     }
 
     case HANDLE_LAUNCHES_DATA_FAIL: {
-      console.log(action.error);
       return {
         ...state,
         error: action.error,

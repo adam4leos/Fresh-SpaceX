@@ -47,8 +47,7 @@ class Launches extends Component<Props, State> {
   }
 
   onLaunchYearChange = (event: SyntheticInputEvent<HTMLInputElement>) => {
-    const newEnteredYear: string = event.target.value;
-
+    const newEnteredYear: string = event.target.value.replace(/[^0-9.]/g, '');
     this.props.changeLaunchYear(newEnteredYear);
   }
 
@@ -114,7 +113,7 @@ class Launches extends Component<Props, State> {
           </label>
           <button type="submit" className="launches__submit">Submit</button>
         </form>
-        <h2 className="launches__results-heading">{isLatestLaunch ? 'Latest Launch' : launchYear }</h2>
+        <h2 className="launches__results-heading">{isLatestLaunch ? 'Latest Launch' : `Year: ${launchYear}` }</h2>
         <div className="launches__grid">
           {(() => {
             if (error !== undefined) {

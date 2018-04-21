@@ -1,0 +1,9 @@
+@media screen and (max-width: 768px) {
+  .rockets {
+    flex-wrap: wrap;
+    &__link {
+      width: 100%;
+    margin-bottom: 30px;
+    }
+  }
+}

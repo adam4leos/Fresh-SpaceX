@@ -1,0 +1,9 @@
+@media screen and (max-width: 768px) {
+  .rocket-info {
+    flex-wrap: wrap;
+    &__details,
+    &__table {
+      width: 100%
+    }
+  }
+}
