@@ -20,3 +20,6 @@ export const CHANGE_LAUNCH_YEAR: string = 'CHANGE_LAUNCH_YEAR';
 
 // measurement system
 export const TOGGLE_METRIC_SYSTEM: string = 'TOGGLE_METRIC_SYSTEM';
+
+// mobile menu
+export const TOGGLE_MOBILE_MENU_ACTIVITY: string = 'TOGGLE_MOBILE_MENU_ACTIVITY';

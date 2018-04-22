@@ -6,6 +6,7 @@ import companyData from './companyData';
 import rocketsData from './rocketsData';
 import launches from './launches';
 import measurementSystem from './measurementSystem';
+import mobileMenu from './mobileMenu';
 import type { StoreType } from '../flowTypes/flowTypes';
 
 const rootReducer: StoreType = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer: StoreType = combineReducers({
   rocketsData,
   launches,
   measurementSystem,
+  mobileMenu,
   routing: routerReducer,
 });
 

@@ -1,9 +1,9 @@
 // @flow
 
 import React from 'react';
-import './contacts.scss';
-import Header from './../../components/header/Header.jsx';
 import Copyright from './../../components/copyright/Copyright.jsx';
+
+import './contacts.scss';
 
 function Contacts() {
   return (

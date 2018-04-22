@@ -18,6 +18,9 @@ const defaultState: $Shape<StoreType> = {
   measurementSystem: {
     isMetricSystem: true,
   },
+  mobileMenu: {
+    isMobileMenuActive: false,
+  },
 };
 
 const sagaMiddleware = createSagaMiddleware();

@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "prod": "npm run clean && NODE_ENV=production webpack --watch --hide-modules",
+    "prod": "npm run clean && NODE_ENV=production webpack -p",
     "dev": "webpack-dev-server",
     "test": "jest --no-cache",
     "test:watch": "jest --watch",

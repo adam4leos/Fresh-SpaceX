@@ -13,6 +13,7 @@ import {
   TOGGLE_LAUNCHES_MODE,
   CHANGE_LAUNCH_YEAR,
   TOGGLE_METRIC_SYSTEM,
+  TOGGLE_MOBILE_MENU_ACTIVITY,
 } from './actionTypes';
 import type {
   CompanyDataType,
@@ -97,5 +98,11 @@ export function changeLaunchYear(launchYear: string = '2017') {
 export function toggleMetricSystem() {
   return {
     type: TOGGLE_METRIC_SYSTEM,
+  };
+}
+
+export function toggleMobileMenuActivity() {
+  return {
+    type: TOGGLE_MOBILE_MENU_ACTIVITY,
   };
 }

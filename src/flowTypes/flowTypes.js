@@ -119,12 +119,20 @@ export type StoreType = {
   measurementSystem: {
     isMetricSystem: boolean,
   },
+  mobileMenu: {
+    isMobileMenuActive: boolean,
+  },
   changeLaunchYear: ChangeLaunchYearType,
   toggleMetricSystem: ToggleMetricSystemType,
   requestLaunchesData: RequestLaunchesDataType,
   toggleLaunchesMode: ToggleLaunchesModeType,
   isPastLaunches: boolean,
   isMetricSystem: boolean,
+  isMobileMenuActive: boolean,
+  history: {
+    listen: (location?: Object, action?: string) => void,
+  },
+  toggleMobileMenuActivity: () => { type: string },
 }
 
 export type ActionType = {

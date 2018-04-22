@@ -21,18 +21,32 @@ type FreshSpaceXType = StoreType;
 
 const FreshSpaceX = (props: FreshSpaceXType) => (
   <div className="content">
-    <Header />
+    <Header
+      toggleMobileMenuActivity={props.toggleMobileMenuActivity}
+      isMobileMenuActive={props.mobileMenu.isMobileMenuActive}
+      listen={props.history.listen}
+    />
     <Route
       exact
       path="/"
       render={() => (
-        <Main companyData={props.companyData} requestCompanyData={props.requestCompanyData} />
+        <Main
+          companyData={props.companyData}
+          requestCompanyData={props.requestCompanyData}
+          toggleMobileMenuActivity={props.toggleMobileMenuActivity}
+          isMobileMenuActive={props.mobileMenu.isMobileMenuActive}
+        />
       )}
     />
     <Route
       path="/rockets"
       render={() => (
-        <Rockets rocketsData={props.rocketsData} requestRocketsData={props.requestRocketsData} />
+        <Rockets
+          rocketsData={props.rocketsData}
+          requestRocketsData={props.requestRocketsData}
+          toggleMobileMenuActivity={props.toggleMobileMenuActivity}
+          isMobileMenuActive={props.mobileMenu.isMobileMenuActive}
+        />
       )}
     />
     <Route
@@ -54,11 +68,23 @@ const FreshSpaceX = (props: FreshSpaceXType) => (
           requestLaunchesData={props.requestLaunchesData}
           changeLaunchYear={props.changeLaunchYear}
           toggleLaunchesMode={props.toggleLaunchesMode}
+          toggleMobileMenuActivity={props.toggleMobileMenuActivity}
+          isMobileMenuActive={props.mobileMenu.isMobileMenuActive}
         />
       )}
     />
-    <Route exact path="/launches/:id" render={() => <LaunchInfo {...props.location.state.launchData} />} />
-    <Route exact path="/contacts" component={Contacts} />
+    <Route
+      exact
+      path="/launches/:id"
+      render={() => <LaunchInfo {...props.location.state.launchData} />}
+    />
+    <Route
+      exact
+      path="/contacts"
+      component={Contacts}
+      toggleMobileMenuActivity={props.toggleMobileMenuActivity}
+      isMobileMenuActive={props.mobileMenu.isMobileMenuActive}
+    />
   </div>
 );
 
@@ -68,6 +94,7 @@ function mapStateToProps(state) {
     rocketsData: state.rocketsData,
     launches: state.launches,
     measurementSystem: state.measurementSystem,
+    mobileMenu: state.mobileMenu,
   };
 }
 

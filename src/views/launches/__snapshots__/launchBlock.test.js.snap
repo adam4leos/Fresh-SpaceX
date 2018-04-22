@@ -34,7 +34,7 @@ exports[`Testing LaunchBlock component LaunchBlock is matching snapshot 1`] = `
 </div>
 `;
 
-exports[`Testing LaunchBlock component LaunchBlock properly working with empty 1`] = `
+exports[`Testing LaunchBlock component LaunchBlock properly working with "true", "false" & "null" launch_success 1`] = `
 <div
   className="launch-block"
 >
@@ -63,7 +63,7 @@ exports[`Testing LaunchBlock component LaunchBlock properly working with empty 1
 </div>
 `;
 
-exports[`Testing LaunchBlock component LaunchBlock properly working with empty 2`] = `
+exports[`Testing LaunchBlock component LaunchBlock properly working with "true", "false" & "null" launch_success 2`] = `
 <div
   className="launch-block"
 >
@@ -97,7 +97,7 @@ exports[`Testing LaunchBlock component LaunchBlock properly working with empty 2
 </div>
 `;
 
-exports[`Testing LaunchBlock component LaunchBlock properly working with empty 3`] = `
+exports[`Testing LaunchBlock component LaunchBlock properly working with "true", "false" & "null" launch_success 3`] = `
 <div
   className="launch-block"
 >

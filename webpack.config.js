@@ -47,7 +47,7 @@ module.exports = {
     inline: true,
     port: 8080,
   },
-  devtool: 'source-map',
+  devtool: isProd ? false : 'source-map',
   module: {
     rules: [
       {
